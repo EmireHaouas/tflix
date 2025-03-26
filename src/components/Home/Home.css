@@ -1,0 +1,15 @@
+@media screen and (min-width: 1200px){
+    .searchContainer{
+        display: flex;
+        flex-direction: column;
+        padding-left: 160px;
+        overflow-x: auto;
+    }
+    .homeContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+}
