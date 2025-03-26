@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './components/header/Header'
-import SearchBar from './components/SearchBar/SearchBar.jsx'
-import Trending from "./components/Trending/Trending.jsx";
+import Home from './components/Home/Home'
 
 function App() {
 
@@ -11,9 +9,7 @@ function App() {
 
   return (
     <>
-        {/*} <Header />*/}
-        <SearchBar />
-        <Trending />
+       <Home />
 
     </>
   )

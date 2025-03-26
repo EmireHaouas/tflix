@@ -1,0 +1,23 @@
+.h2Trending{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Outfit', sans-serif;
+}
+.trending{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.trendCards {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap; /* Empêche les éléments de passer à la ligne */
+    gap: 10px; /* Ajoute un espace entre les éléments */
+    padding: 10px;
+    scroll-behavior: smooth; /* Permet un défilement fluide */
+}
+.trendCards .card {
+    flex-shrink: 0; /* Empêche les éléments de se réduire en taille */
+}

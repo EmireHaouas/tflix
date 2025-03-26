@@ -1,0 +1,47 @@
+.card {
+    background-size: cover;
+    background-position: center;
+    width: 240px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px;
+}
+.title_Movie{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-left: 15px;
+}
+.infosTrendCard{
+    display: flex;
+    flex-direction: row;
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+}
+.infosTrendCard p {
+    margin-bottom: 0;
+}
+.p_YearMovie{
+    margin-left: 15px;
+}
+@media screen and (min-width: 640px){
+    .card{
+        width: 470px;
+        height: 230px;
+        border-radius: 10px;
+    }
+    .title_Movie{
+        font-size: 24px;
+    }
+    .infosTrendCard{
+        font-size: 15px;
+    }
+
+}
+/*24 15*/
