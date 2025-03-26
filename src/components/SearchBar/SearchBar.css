@@ -1,0 +1,41 @@
+.inputSearch{
+    color: #FFFFFF;
+    background-color: #10141E;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+.searchBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    gap: 10px;
+    width: 70%;
+}
+.iconSearch{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+input:focus{
+    outline: none;
+}
+@media screen and (min-width: 640px){
+    .inputSearch{
+        font-size: 24px;
+    }
+    .searchBar{
+        width: 53px;
+    }
+    .iconSearch{
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+}
+@media screen and (min-width: 1200px){
+
+}

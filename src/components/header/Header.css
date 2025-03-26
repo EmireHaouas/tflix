@@ -1,0 +1,114 @@
+header{
+    background-color: #161D2F;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 20px;
+    align-items: center;
+}
+body{
+    margin: 0;
+    background-color: #10141E;
+}
+.iconHome{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.logo{
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+.avatar{
+     width: 24px;
+     height: 24px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+ }
+.iconNavMovie{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.iconNavTv{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.iconNavBookmark{
+    width: 13.5px;
+    height: 16px;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    justify-content: space-evenly;
+}
+@media screen and (min-width: 640px){
+    header{
+        width: 90%;
+        border-radius: 10px;
+        position: relative;
+        left: 20px;
+        margin-top: 0px;
+        top: 20px;
+    }
+    .iconHome{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .logo{
+        width: 32px;
+        height: 25.6px;
+        cursor: pointer;
+    }
+    .avatar{
+        width: 32px;
+        height: 32px;
+        border: 1px solid #fff;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    .iconNavMovie{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .iconNavTv{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .iconNavBookmark{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+}
+@media screen and (min-width: 1200px){
+    header{
+        flex-direction: column;
+        width: 96px;
+        height: 90vh;
+        position: fixed;
+    }
+    .nav{
+        flex-direction: column;
+        height: 300px;
+    }
+    .avatar{
+        width: 40px;
+        height: 40px;
+        border: 1px solid #fff;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+}
