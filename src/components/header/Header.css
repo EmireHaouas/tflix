@@ -95,7 +95,7 @@ body{
 @media screen and (min-width: 1200px){
     header{
         flex-direction: column;
-        width: 96px;
+        width: 80px;
         height: 90vh;
         position: fixed;
     }

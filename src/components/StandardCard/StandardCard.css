@@ -1,4 +1,4 @@
-.ccard {
+.upperCard {
     background-size: cover;
     background-position: center;
     width: 164px;
@@ -18,7 +18,7 @@
   justify-content: space-around;*/
 
 
-.eentireCard{
+.stdCard{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,55 +26,58 @@
     box-sizing: border-box;
     margin: 10px 0;
 }
-.title_Movie{
+.title_MovieStd{
     color: #FFFFFF;
     font-family: 'Outfit', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     margin-top: 0;
-    margin-left: 15px;
 }
 .infosCard{
     display: flex;
     flex-direction: column;
 }
-.infosTrendCard{
+.lowerCard{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     color: #FFFFFF;
     font-family: 'Outfit', sans-serif;
     font-size: 12px;
     font-weight: 300;
+    align-items: center;
 }
-.infosTrendCard p {
+.lowerCard p {
     margin-bottom: 0;
 }
-.p_YearMovie{
-    margin-left: 15px;
+.p_YearMovieStd{
+    margin-left: 0;
     margin-top: 0;
+    font-size: 11px;
 }
-.itemType{
+.itemTypeStd{
     margin-top: 0;
+    font-size: 11px;
 }
-.categoryIcon{
-    width: 12px;
-    height: 12px;
+.categoryIcon_Std{
+    width: 10px;
+    height: 10px;
     margin-left: 5px;
     margin-right: 5px;
 }
-.category{
+.infosSection{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 10px;
 }
-.bookmarkIcon{
+.bookmarkIcon_StdCard{
     width: 11px;
     height: 14px;
     cursor: pointer;
     opacity: 1;
     z-index: 1;
 }
-.bookmark {
+.bookmark_StdCard {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,26 +85,31 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    margin-bottom: 20%;
+    margin-bottom: 43%;
     margin-right: 5%;
     align-self: flex-end;
     position: relative;
 }
 @media screen and (min-width: 640px){
-    .ccard{
+    .upperCard{
         width: 220px;
         height: 140px;
         border-radius: 10px;
     }
-    .eentireCard{
+    .stdCard{
         flex-basis: 33%;
 
     }
-    .title_Movie{
-        font-size: 24px;
+    .title_MovieStd{
+        font-size: 18px;
     }
-    .infosTrendCard{
-        font-size: 15px;
+    .itemTypeStd{
+        font-size: 13px;
+
+    }
+    .p_YearMovieStd{
+        font-size: 13px;
+
     }
 
 }
@@ -109,5 +117,13 @@
 
 
 @media screen and (min-width: 1200px){
+    .stdCard{
+        flex-basis: 25%;
+    }
+
+    .upperCard{
+        width: 80%;
+        height: auto;
+    }
 
 }

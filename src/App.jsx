@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-       <Home />
-        <StandardCard />
+        <Home />
+
 
     </>
   )

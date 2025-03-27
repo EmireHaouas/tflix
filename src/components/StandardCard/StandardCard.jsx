@@ -9,30 +9,31 @@ const StandardCard = ({item}) => {
     const imageUrl = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
     return (
         <>
-            <div className='eentireCard'>
-               <div className='ccard' style={{backgroundImage: `url(${imageUrl})`}}>
-                    <div className='bookmark'>
-                       <img className='bookmarkIcon' src={iconBookmarkEmpty} alt='bookmark icon'/>
+            <div className='stdCard'>
+               <div className='upperCard' style={{backgroundImage: `url(${imageUrl})`}}>
+                    <div className='bookmark_StdCard'>
+                       <img className='bookmarkIcon_StdCard' src={iconBookmarkEmpty} alt='bookmark icon'/>
                     </div>
                </div>
 
-               <div className='infosTrendCard'>
-                  <div className='trendCard'>
-                    <p className='title_Movie'>{item.title || item.name}</p>
-                  </div>
+               <div className='lowerCard'>
 
-                <div className='category'>
-                    <p className='p_YearMovie'>{item.release_date ? item.release_date.split('-')[0] : 'N/A'} . </p>
+                    <p className='title_MovieStd'>{item.title || item.name}</p>
+
+
+                <div className='infosSection'>
+                    <p className='p_YearMovieStd'>{item.release_date ? item.release_date.split('-')[0] : 'N/A'} . </p>
                     <img
-                        className="categoryIcon"
+                        className="categoryIcon_Std"
                         src={item?.media_type === "movie" ? iconCategoryMovie : iconCategoryTv}
                         alt="category icon"
                     />
 
 
-                    <p className='itemType'>{item.media_type}</p>
+                    <p className='itemTypeStd'>{item.media_type}</p>
 
                 </div>
+
             </div>
             </div>
         </>

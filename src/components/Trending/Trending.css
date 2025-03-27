@@ -3,11 +3,14 @@
     font-size: 20px;
     font-weight: 300;
     font-family: 'Outfit', sans-serif;
+    margin-left: 7px;
+    margin-bottom: 10px;
 }
 .trending{
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+
 }
 .trendCards {
     display: flex;
@@ -20,4 +23,11 @@
 }
 .trendCards .card {
     flex-shrink: 0; /* Empêche les éléments de se réduire en taille */
+}
+@media screen and (min-width: 1200px){
+    .h2Trending{
+        font-size: 32px;
+        margin-left: 7px;
+        margin-bottom: 10px;
+    }
 }

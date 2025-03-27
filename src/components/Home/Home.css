@@ -2,13 +2,23 @@
    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 .standard-card{
     flex-basis: 50%;
     box-sizing: border-box;
 
 }
+.recomendedH2{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
 
 
 
@@ -23,6 +33,15 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+    .recomendedH2{
+        color: #FFFFFF;
+        font-family: 'Outfit', sans-serif;
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom: 20;
+        margin-top: 50px;
+        margin-left: 42px;
     }
 
 
