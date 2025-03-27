@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Home from './components/Home/Home'
+import StandardCard from "./components/StandardCard/StandardCard.jsx";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
        <Home />
+        <StandardCard />
 
     </>
   )

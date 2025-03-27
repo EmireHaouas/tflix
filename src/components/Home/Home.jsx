@@ -3,6 +3,8 @@ import './Home.css';
 import Trending from '../Trending/Trending.jsx';
 import Header from '../Header/Header.jsx';
 import SearchBar from "../SearchBar/SearchBar.jsx";
+import StandardCard from "../StandardCard/StandardCard.jsx";
+import TrendCard from "../Props/TrendCard/TrendCard.jsx";
 
 
 const Home = () => {
@@ -52,13 +54,16 @@ useEffect(() => {
             <Header />
             <div className='searchContainer'>
             <SearchBar value={search} onClick={handleSearch} onChange={handleSearch} />
+
             <Trending  trending={trending} />
+              <div className='recommended'>
+               {trending && trending.map((item) => (
+                   <StandardCard key={item.id} item={item} className="standard-card"/>
+               ))}
+              </div>
             </div>
             </div>
-           <div>{searchResults &&
-            searchResults.map((item) => (
-                <p key={item.imdbID}>{item.Title}</p>
-            ))}</div>
+
         </>
     );
 };

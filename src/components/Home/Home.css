@@ -1,3 +1,17 @@
+.recommended{
+   display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.standard-card{
+    flex-basis: 50%;
+    box-sizing: border-box;
+
+}
+
+
+
 @media screen and (min-width: 1200px){
     .searchContainer{
         display: flex;

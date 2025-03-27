@@ -1,6 +1,7 @@
 import React from 'react';
 import './Trending.css';
 import TrendCard from '../Props/TrendCard/TrendCard.jsx';
+import StandardCard from "../StandardCard/StandardCard.jsx";
 
 const Trending = ({trending}) => {
     return (
@@ -13,6 +14,7 @@ const Trending = ({trending}) => {
                     ))}
 
             </div>
+
 
             </div>
         </>
