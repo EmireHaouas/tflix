@@ -1,0 +1,72 @@
+.imgDetails{
+    width: 80%;
+    height: auto;
+    align-self: center;
+}
+.description{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    width: 90%;
+}
+.h2_Disponibility{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+}
+.titleMedia{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+.providers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.platform-logo img {
+    width: 50px; /
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /
+}
+
+.platform-logo img:hover {
+    transform: scale(1.1);
+}
+.mainDetails{
+    display: flex;
+    flex-direction: column;
+    padding-top:  20px;
+    margin-top: 20px;
+    align-items: center;
+}
+@media screen and (min-width: 640px){
+    .mainDetails{
+        margin-top: 40px;
+    }
+}
+@media screen and (min-width: 1200px){
+    .imgDetails{
+        width: 50%;
+        height: auto;
+        align-self: center;
+    }
+    .description{
+        color: #FFFFFF;
+        font-family: 'Outfit', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        width: 50%;
+    }
+    .titleMedia{
+        color: #FFFFFF;
+        font-family: 'Outfit', sans-serif;
+        font-size: 30px;
+        font-weight: 600;
+    }
+}

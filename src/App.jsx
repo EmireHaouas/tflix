@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import {BrowserRouter as Router, Route, Routes,} from 'react-router-dom';
+import {BrowserRouter, BrowserRouter as Router, Route, Routes,} from 'react-router-dom';
 import Home from './components/Home/Home'
 import Series from './components/Series/Series.jsx';
 import Movies from "./components/Movies/Movies.jsx";
 import Bookmarked from "./components/Bookmarked/Bookmarked.jsx";
+import MediaDetails from "./components/MediaDetails/MediaDetails.jsx";
 
 function App() {
     const [bookMarked, setBookMarked] = useState(() => {
@@ -30,15 +31,17 @@ function App() {
 
   return (
     <>
-        <Router>
+        <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home bookmarked={bookMarked} handleBookMarked={handleBookMark} />}></Route>
               <Route path="/movies" element={<Movies bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
               <Route path="/series" element={<Series bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
               <Route path="/bookmarked" element={<Bookmarked bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
-           </Routes>
+              <Route path='/details/:mediaType/:id' element={<MediaDetails />} />
 
-        </Router>
+            </Routes>
+
+        </BrowserRouter>
 
     </>
   )

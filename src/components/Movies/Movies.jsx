@@ -12,6 +12,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
     const [searchMovieResults, setSearchMovieResults] = useState([]);
     const [searchMovie, setSearchMovie] = useState('');
 
+    // Api request to get trending movies
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`)
             .then((response) => response.json())
@@ -22,6 +23,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
                 return `Error: ${error}`;
             });
     }, []);
+
     // Api request to get search results
     useEffect(() => {
         if (searchMovie) {

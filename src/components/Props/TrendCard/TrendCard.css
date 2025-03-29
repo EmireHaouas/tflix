@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
+    cursor: pointer;
 }
 .title_Movie{
     color: #FFFFFF;
@@ -64,6 +65,13 @@
     margin-right: 5%;
     align-self: flex-end;
     position: relative;
+}
+
+.card:hover{
+    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    transition: all 0.3s ease;
+    border-color: #0ff;
+    box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
 }
 @media screen and (min-width: 640px){
     .card{

@@ -7,17 +7,8 @@
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
+    cursor: pointer;
 }
-
-/*display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 50px;
-  gap: 50px;
-  align-items: center;
-  justify-content: space-around;*/
-
-
 .stdCard{
     display: flex;
     flex-direction: column;
@@ -25,6 +16,7 @@
     flex-basis: 50%;
     box-sizing: border-box;
     margin: 10px 0;
+
 }
 .title_MovieStd{
     color: #FFFFFF;
@@ -45,6 +37,7 @@
     font-size: 12px;
     font-weight: 300;
     align-items: center;
+
 }
 .lowerCard p {
     margin-bottom: 0;
