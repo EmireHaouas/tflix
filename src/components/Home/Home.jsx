@@ -14,7 +14,7 @@ const Home = ({bookmarked, handleBookMarked}) => {
     const [trending, setTrending] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}&language=fr-FR`)
             .then((response) => response.json())
             .then((data) => {
                 setTrending(data.results);
@@ -26,7 +26,7 @@ const Home = ({bookmarked, handleBookMarked}) => {
 
     useEffect(() => {
         if (search) {
-            fetch(`https://api.themoviedb.org/3/search/multi?query=${search}&api_key=${apiKey}`)
+            fetch(`https://api.themoviedb.org/3/search/multi?query=${search}&api_key=${apiKey}&language=fr-FR`)
                 .then((response) => response.json())
                 .then((data) => {
                     setSearchAnyResults(data.results || []);
