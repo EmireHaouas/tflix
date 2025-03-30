@@ -37,7 +37,7 @@ function App() {
               <Route path="/movies" element={<Movies bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
               <Route path="/series" element={<Series bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
               <Route path="/bookmarked" element={<Bookmarked bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
-              <Route path='/details/:mediaType/:id' element={<MediaDetails />} />
+              <Route path='/details/:mediaType/:id' element={<MediaDetails bookmarked={bookMarked} handleBookmarked={handleBookMark} />} />
 
             </Routes>
 

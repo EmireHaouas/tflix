@@ -16,13 +16,13 @@
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    white-space: nowrap; /* Empêche les éléments de passer à la ligne */
-    gap: 10px; /* Ajoute un espace entre les éléments */
+    white-space: nowrap;
+    gap: 10px;
     padding: 10px;
-    scroll-behavior: smooth; /* Permet un défilement fluide */
+    scroll-behavior: smooth;
 }
 .trendCards .card {
-    flex-shrink: 0; /* Empêche les éléments de se réduire en taille */
+    flex-shrink: 0;
 }
 @media screen and (min-width: 1200px){
     .h2Trending{
