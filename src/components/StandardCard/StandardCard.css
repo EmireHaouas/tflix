@@ -17,6 +17,7 @@
     box-sizing: border-box;
     margin: 10px 0;
 
+
 }
 .title_MovieStd{
     color: #FFFFFF;
@@ -106,14 +107,10 @@
     }
 
 }
-
-
-
 @media screen and (min-width: 1200px){
     .stdCard{
         flex-basis: 25%;
     }
-
     .upperCard{
         width: 80%;
         height: auto;

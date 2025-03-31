@@ -104,6 +104,22 @@ iframe{
     color: #FFFFFF;
     font-family: 'Outfit', sans-serif;
 }
+.h2_Cast{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.castContainer{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 82px;
+    padding: 10px 20px;
+    scroll-behavior: smooth;
+}
 .titleMedia{
     color: #FFFFFF;
     font-family: 'Outfit', sans-serif;

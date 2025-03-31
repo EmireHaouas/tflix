@@ -1,0 +1,26 @@
+.castProfilePicture {
+    border: 2px solid #ffffff;
+    border-radius: 80px;
+    width: 59px;
+    height: 59px;
+    object-fit: cover;
+}
+.castName {
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+.characterName{
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    margin-top: 0;
+    font-size: 13px;
+}
+.castProfileContainer {
+    display: flex;
+    flex-direction: column;
+    width: 17%;
+    align-items: center;
+    flex-shrink: 0;
+}

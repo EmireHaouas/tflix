@@ -1,6 +1,8 @@
 .bookmarked {
     padding-left: 0px;
 }
-.bookmarkedContainer{
-    padding-left: 160px;
+@media screen and (min-width: 1200px) {
+    .bookmarkedContainer {
+        padding-left: 160px;
+    }
 }

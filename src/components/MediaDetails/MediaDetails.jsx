@@ -5,6 +5,8 @@ import Header from "../header/Header.jsx";
 import StandardCard from "../StandardCard/StandardCard.jsx";
 import iconYoutube from '../../assets/imgs/iconYoutube.png';
 import iconAffiche from '../../assets/imgs/iconAffiche.png';
+import CastProfile from "../Props/CastProfile/CastProfile.jsx";
+
 
 const MediaDetails = ({bookmarked, handleBookmarked}) => {
     const { mediaType, id } = useParams();
@@ -15,7 +17,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
     const [error, setError] = useState(null);
     const [showTrailer, setShowTrailer] = useState(false);
     const [recommendations, setRecommendations] = useState(null);
-    const [cast, setCast] = useState(null);
+    const [cast, setCast] = useState([]);
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
 
     const formatDuration = (minutes) => {
@@ -36,22 +38,23 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                 const providerUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/watch/providers?api_key=${apiKey}&language=fr-FR`;
                 const videosUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/videos?api_key=${apiKey}&language=fr-FR`;
                 const recommendationsUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/recommendations?api_key=${apiKey}&language=fr-FR`;
-                const cast = `https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${apiKey}`
+                const castUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${apiKey}`
 
                 // Execute the queries in parallel
-                const [mediaRes, providersRes, videosRes, recommendationsRes] = await Promise.all([
+                const [mediaRes, providersRes, videosRes, recommendationsRes, castRes] = await Promise.all([
                     fetch(detailsUrl).then(res => res.json()),
                     fetch(providerUrl).then(res => res.json()),
                     fetch(videosUrl).then(res => res.json()),
                     fetch(recommendationsUrl).then(res => res.json()),
-                    fetch (cast).then(res => res.json())
+                    fetch(castUrl).then(res => res.json())
+
                 ]);
 
                 setMedia(mediaRes);
                 setProviders(providersRes.results);
                 setVideos(videosRes.results);
                 setRecommendations(recommendationsRes.results);
-                setCast(cast.results);
+                setCast(castRes.cast || []);
 
             } catch (err) {
                 setError('Erreur lors du chargement des données.');
@@ -91,7 +94,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
             );
         });
 
-        return platforms.length > 0 ? platforms : "Aucune plateforme disponible en France pour ce média.";
+        return platforms.length > 0 ? platforms : "This Title is not available on any platform.";
     };
 
     return (
@@ -175,6 +178,18 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                 <StandardCard key={recommendation.id} item={recommendation} handleBookMarked={handleBookmarked} bookmarked={bookmarked} />
             )) }
             </div>
+            </div>
+            <div className='cast'>
+                <h2 className='h2_Cast'>Cast</h2>
+                <div className='castContainer'>
+                    {cast.length > 0 ? (
+                        cast.map((actor) => (
+                            <CastProfile key={actor.id} name={actor.name} character={actor.character} img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
+                        ))
+                    ) : (
+                        <p>No cast information available.</p>
+                    )}
+                </div>
             </div>
         </>
     );
