@@ -8,7 +8,6 @@ import {useNavigate} from "react-router-dom";
 
 const TrendCard = ({ item, bookmarked, handleBookMarked }) => {
     const navigate = useNavigate();
-
     const imageUrl = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
     const isBookmarked = bookmarked.some(bookmark => bookmark.id === item.id);
 

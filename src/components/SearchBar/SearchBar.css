@@ -15,9 +15,9 @@
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
-    margin-left: 23px;
     gap: 10px;
     width: 70%;
+    margin-left: 20px;
 }
 .iconSearch{
     width: 24px;
@@ -42,5 +42,8 @@ input:focus{
     }
 }
 @media screen and (min-width: 1200px){
+    .searchBar{
+        margin-left: 160px;
+    }
 
 }

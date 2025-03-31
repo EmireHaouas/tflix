@@ -7,10 +7,10 @@ import StandardCard from "../StandardCard/StandardCard.jsx";
 const Series = ({bookmarked, handleBookMarked}) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473'
     const [trendingSeries, setTrendingSeries] = useState([]);
-
     const [searchSerieResults, setSearchSerieResults] = useState([]);
     const [searchSerie, setSearchSerie] = useState('');
 
+    // Api request to get trending series
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${apiKey}`)
             .then((response) => response.json())
@@ -21,21 +21,25 @@ const Series = ({bookmarked, handleBookMarked}) => {
                 return `Error: ${error}`;
             });
     }, []);
+
     // Api request to get search results
     useEffect(() => {
-        if (searchSerie) {
-            fetch(`https://api.themoviedb.org/3/search/tv?query=${searchSerie}&api_key=${apiKey}`)
-                .then((response) => response.json())
-                .then((data) => {
-                    setSearchSerieResults(data.results || []);
-                })
-                .catch((error) => {
-                    console.error(`Error: ${error}`);
-                });
-        } else {
-            setSearchSerieResults([]);
-        }
-    }, [searchSerie]);
+        const timeoutIdSearchSeries = setTimeout(() => {
+            if (searchSerie) {
+                fetch(`https://api.themoviedb.org/3/search/tv?query=${searchSerie}&api_key=${apiKey}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setSearchSerieResults(data.results || []);
+                    })
+                    .catch((error) => {
+                        console.error(`Error: ${error}`);
+                    });
+            } else {
+                setSearchSerieResults([]);
+            }
+        }, 300);
+        return () => clearTimeout(timeoutIdSearchSeries);
+        }, [searchSerie]);
 
 
 
@@ -46,7 +50,7 @@ const Series = ({bookmarked, handleBookMarked}) => {
     return(
         <>
             <Header/>
-            <SearchBar value={searchSerie} onChange={handleSearch} onClick={handleSearch}/>
+            <SearchBar value={searchSerie} onChange={handleSearch} onClick={handleSearch} placeholder='Search for TV series'/>
 
             {searchSerie && searchSerieResults.length > 0 && (
                 <div className='searchResults'>

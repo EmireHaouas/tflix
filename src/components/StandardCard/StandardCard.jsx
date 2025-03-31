@@ -12,8 +12,8 @@ const StandardCard = ({item, bookmarked, handleBookMarked}) => {
     const navigate = useNavigate();
     const isBookmarked = bookmarked.some(bookmark => bookmark.id === item.id);
     const handleBookmarkClick = (e) => {
-        e.stopPropagation(); // Empêche la propagation de l'événement vers le parent (la carte)
-        handleBookMarked(item); // Gère l'ajout ou la suppression du film/émission des favoris
+        e.stopPropagation();
+        handleBookMarked(item);
         console.log(bookmarked);
     };
     const handleClick = () => {

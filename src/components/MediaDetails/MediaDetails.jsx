@@ -5,7 +5,6 @@ import Header from "../header/Header.jsx";
 import StandardCard from "../StandardCard/StandardCard.jsx";
 import iconYoutube from '../../assets/imgs/iconYoutube.png';
 import iconAffiche from '../../assets/imgs/iconAffiche.png';
-import bookmarked from "../Bookmarked/Bookmarked.jsx";
 
 const MediaDetails = ({bookmarked, handleBookmarked}) => {
     const { mediaType, id } = useParams();
@@ -16,6 +15,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
     const [error, setError] = useState(null);
     const [showTrailer, setShowTrailer] = useState(false);
     const [recommendations, setRecommendations] = useState(null);
+    const [cast, setCast] = useState(null);
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
 
     const formatDuration = (minutes) => {
@@ -36,19 +36,22 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                 const providerUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/watch/providers?api_key=${apiKey}&language=fr-FR`;
                 const videosUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/videos?api_key=${apiKey}&language=fr-FR`;
                 const recommendationsUrl = `https://api.themoviedb.org/3/${mediaType}/${id}/recommendations?api_key=${apiKey}&language=fr-FR`;
+                const cast = `https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${apiKey}`
 
                 // Execute the queries in parallel
                 const [mediaRes, providersRes, videosRes, recommendationsRes] = await Promise.all([
                     fetch(detailsUrl).then(res => res.json()),
                     fetch(providerUrl).then(res => res.json()),
                     fetch(videosUrl).then(res => res.json()),
-                    fetch(recommendationsUrl).then(res => res.json())
+                    fetch(recommendationsUrl).then(res => res.json()),
+                    fetch (cast).then(res => res.json())
                 ]);
 
                 setMedia(mediaRes);
                 setProviders(providersRes.results);
                 setVideos(videosRes.results);
                 setRecommendations(recommendationsRes.results);
+                setCast(cast.results);
 
             } catch (err) {
                 setError('Erreur lors du chargement des données.');
@@ -61,11 +64,11 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
         fetchData();
     }, [id, mediaType]);
 
-    if (isLoading) return <p>Chargement...</p>;
+    if (isLoading) return <p>loading...</p>;
 
     if (error) return <p>{error}</p>;
 
-    if (!media) return <p>Erreur : Média non trouvé</p>;
+    if (!media) return <p>Error : Média not found</p>;
 
     const trailer = videos.find(video => video.type === "Trailer");
 
@@ -114,7 +117,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                             ></iframe>
                         </div>
                     ) : (
-                        <p>Aucun trailer disponible.</p>
+                        <p>No trailer available.</p>
                     )
                 ) : (
                     <img

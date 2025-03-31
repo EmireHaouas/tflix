@@ -8,7 +8,6 @@ import Trending from "../Trending/Trending.jsx";
 const Movies = ({bookmarked, handleBookMarked}) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473'
     const [trendingMovies, setTrendingMovies] = useState([]);
-
     const [searchMovieResults, setSearchMovieResults] = useState([]);
     const [searchMovie, setSearchMovie] = useState('');
 
@@ -26,18 +25,21 @@ const Movies = ({bookmarked, handleBookMarked}) => {
 
     // Api request to get search results
     useEffect(() => {
-        if (searchMovie) {
-            fetch(`https://api.themoviedb.org/3/search/movie?query=${searchMovie}&api_key=${apiKey}`)
-                .then((response) => response.json())
-                .then((data) => {
-                    setSearchMovieResults(data.results || []);
-                })
-                .catch((error) => {
-                    console.error(`Error: ${error}`);
-                });
-        } else {
-            setSearchMovieResults([]);
-        }
+        const timeoutIdSearchMovies = setTimeout(() => {
+            if (searchMovie) {
+                fetch(`https://api.themoviedb.org/3/search/movie?query=${searchMovie}&api_key=${apiKey}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setSearchMovieResults(data.results || []);
+                    })
+                    .catch((error) => {
+                        console.error(`Error: ${error}`);
+                    });
+            } else {
+                setSearchMovieResults([]);
+            }
+        }, 300);
+        return () => clearTimeout(timeoutIdSearchMovies);
     }, [searchMovie]);
 
 
@@ -49,7 +51,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
     return(
         <>
             <Header/>
-            <SearchBar value={searchMovie} onChange={handleSearch} onClick={handleSearch}/>
+            <SearchBar value={searchMovie} onChange={handleSearch} onClick={handleSearch} placeholder='Search for movies'/>
 
             {searchMovie && searchMovieResults.length > 0 && (
                 <div className='searchResults'>

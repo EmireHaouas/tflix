@@ -9,7 +9,6 @@ import MediaDetails from "./components/MediaDetails/MediaDetails.jsx";
 
 function App() {
     const [bookMarked, setBookMarked] = useState(() => {
-        // Récupérer les favoris du localStorage au chargement initial
         const savedBookmarks = localStorage.getItem('bookMarked');
         return savedBookmarks ? JSON.parse(savedBookmarks) : [];
     });
@@ -25,7 +24,6 @@ function App() {
     };
 
     useEffect(() => {
-        // Sauvegarder les favoris dans le localStorage à chaque changement
         localStorage.setItem('bookMarked', JSON.stringify(bookMarked));
     }, [bookMarked]);
 

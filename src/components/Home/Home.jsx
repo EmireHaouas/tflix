@@ -4,7 +4,6 @@ import Trending from '../Trending/Trending.jsx';
 import Header from '../Header/Header.jsx';
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import StandardCard from "../StandardCard/StandardCard.jsx";
-import TrendCard from "../Props/TrendCard/TrendCard.jsx";
 
 const Home = ({bookmarked, handleBookMarked}) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
@@ -13,6 +12,7 @@ const Home = ({bookmarked, handleBookMarked}) => {
     const [search, setSearch] = useState('');
     const [trending, setTrending] = useState([]);
 
+    // Api request to get trending movies and series
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}&language=fr-FR`)
             .then((response) => response.json())
@@ -24,19 +24,23 @@ const Home = ({bookmarked, handleBookMarked}) => {
             });
     }, []);
 
+    // Api request to get search any results
     useEffect(() => {
-        if (search) {
-            fetch(`https://api.themoviedb.org/3/search/multi?query=${search}&api_key=${apiKey}&language=fr-FR`)
-                .then((response) => response.json())
-                .then((data) => {
-                    setSearchAnyResults(data.results || []);
-                })
-                .catch((error) => {
-                    console.error(`Error: ${error}`);
-                });
-        } else {
-            setSearchAnyResults([]);
-        }
+        const timeoutIdSearchAny = setTimeout(() => {
+            if (search) {
+                fetch(`https://api.themoviedb.org/3/search/multi?query=${search}&api_key=${apiKey}&language=fr-FR`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setSearchAnyResults(data.results || []);
+                    })
+                    .catch((error) => {
+                        console.error(`Error: ${error}`);
+                    });
+            } else {
+                setSearchAnyResults([]);
+            }
+        },300);
+        return () => clearTimeout(timeoutIdSearchAny);
     }, [search]);
 
     const handleSearch = (event) => {
@@ -49,7 +53,7 @@ const Home = ({bookmarked, handleBookMarked}) => {
             <div className='homeContainer'>
                 <Header />
                 <div className='searchContainer'>
-                    <SearchBar value={search} onClick={handleSearch} onChange={handleSearch}/>
+                    <SearchBar value={search} onClick={handleSearch} onChange={handleSearch} placeholder='Search for movies or TV series'/>
                     {search && searchAnyResults.length > 0 && (
                         <div className='searchResults'>
                             <h2 className='recomendedH2'>Search Results</h2>
