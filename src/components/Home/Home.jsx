@@ -5,7 +5,7 @@ import Header from '../Header/Header.jsx';
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import StandardCard from "../StandardCard/StandardCard.jsx";
 
-const Home = ({bookmarked, handleBookMarked}) => {
+const Home = ({bookmarked, handleBookMarked} ) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
 
     const [searchAnyResults, setSearchAnyResults] = useState([]);

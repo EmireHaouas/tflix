@@ -22,7 +22,6 @@
 .iconSearch{
     width: 24px;
     height: 24px;
-    cursor: pointer;
 }
 input:focus{
     outline: none;
@@ -38,7 +37,6 @@ input:focus{
     .iconSearch{
         width: 32px;
         height: 32px;
-        cursor: pointer;
     }
 }
 @media screen and (min-width: 1200px){

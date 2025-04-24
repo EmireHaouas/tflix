@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css';
 import logo from '../../assets/imgs/logo.svg';
 import iconHome from '../../assets/imgs/icon-nav-home.svg';
@@ -9,9 +9,13 @@ import avatar from '../../assets/imgs/image-avatar.webp';
 import { useLocation, Link } from "react-router-dom";
 
 const Header = () => {
-    const location = useLocation(); // Récupère l'URL actuelle
+    const location = useLocation();
+    const activeFilter = 'brightness(0) invert(1)';
+    const [isAccountOptionsVisible, setIsAccountOptionsVisible] = useState(false);
 
-    const activeFilter = 'brightness(0) invert(1)'; // Pour obtenir l'icône blanche
+    const handleAccountOptionsToggle = () => {
+        setIsAccountOptionsVisible(!isAccountOptionsVisible);
+    }
 
     return(
         <header>
@@ -53,7 +57,16 @@ const Header = () => {
                     />
                 </Link>
             </nav>
-            <img className='avatar' src={avatar} alt='avatar'/>
+            <div className='accountOptions'>
+            <img onClick={handleAccountOptionsToggle} className='avatar' src={avatar} alt='avatar'/>
+                { isAccountOptionsVisible &&(
+                    <div className='accountLoginOptions'>
+                        <Link className='headerLoginLink' to='/login'> <p>Login</p></Link>
+                        <Link className='headerRegisterLink' to='/register'><p>Register</p></Link>
+                    </div>
+                    )}
+            </div>
+
         </header>
     );
 };

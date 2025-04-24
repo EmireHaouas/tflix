@@ -45,6 +45,9 @@
         margin-top: 50px;
         margin-left: 42px;
     }
+    .searchResults{
+        padding-left: 0;
+    }
 
 
 }

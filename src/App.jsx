@@ -8,8 +8,7 @@ import Bookmarked from "./components/Bookmarked/Bookmarked.jsx";
 import MediaDetails from "./components/MediaDetails/MediaDetails.jsx";
 import Login from "./components/Authentification/Login/Login.jsx";
 import Register from './components/Authentification/Register/Register.jsx';
-import castProfile from "./components/Props/CastProfile/CastProfile.jsx";
-import CastProfile from "./components/Props/CastProfile/CastProfile.jsx";
+import ProfileSetup from "./components/Authentification/ProfileSetup/ProfileSetup.jsx";
 
 function App() {
     const [bookMarked, setBookMarked] = useState(() => {
@@ -31,25 +30,20 @@ function App() {
         localStorage.setItem('bookMarked', JSON.stringify(bookMarked));
     }, [bookMarked]);
 
-  return (
-    <>
-        <BrowserRouter>
+    return (
+        <Router basename="/tflix">
             <Routes>
-              <Route path="/" element={<Home bookmarked={bookMarked} handleBookMarked={handleBookMark} />}></Route>
-              <Route path="/movies" element={<Movies bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
-              <Route path="/series" element={<Series bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
-              <Route path="/bookmarked" element={<Bookmarked bookmarked={bookMarked} handleBookMarked={handleBookMark}/>}></Route>
-              <Route path='/details/:mediaType/:id' element={<MediaDetails bookmarked={bookMarked} handleBookmarked={handleBookMark} />} />
-              <Route path='/login' element={<Login />}></Route>
-              <Route path='/register' element={<Register />}></Route>
-                <Route path='/cast' element={<CastProfile />}></Route>
-
+                <Route path="/" element={<Home bookmarked={bookMarked} handleBookMarked={handleBookMark} />} />
+                <Route path="/movies" element={<Movies bookmarked={bookMarked} handleBookMarked={handleBookMark} />} />
+                <Route path="/series" element={<Series bookmarked={bookMarked} handleBookMarked={handleBookMark} />} />
+                <Route path="/bookmarked" element={<Bookmarked bookmarked={bookMarked} handleBookMarked={handleBookMark} />} />
+                <Route path="/details/:mediaType/:id" element={<MediaDetails bookmarked={bookMarked} handleBookMarked={handleBookMark} />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profileSetup" element={<ProfileSetup />} />
             </Routes>
-
-        </BrowserRouter>
-
-    </>
-  )
+        </Router>
+    );
 }
 
 export default App

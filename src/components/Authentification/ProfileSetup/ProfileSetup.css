@@ -1,0 +1,53 @@
+.PseudoInput{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+
+}
+.CountryInput{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+
+}
+.LanguageInput{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+
+}
+.availableProfilePicture{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.profileSetup{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #161D2F;
+    width: 70%;
+    height: 418px;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 15px;
+    align-self: center;
+    padding-bottom: 40px;
+}
+.choiceOfProfilePicture{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.mainProfileSetup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 200px;
+}
+.textProfilePicture{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+
+}
+.profilePicture{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+}

@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import './Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../firebase';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [repeatPassword, setRepeatPassword] = useState('');  // État pour le mot de passe répété
+    const [repeatPassword, setRepeatPassword] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
+    const navigate = useNavigate();
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        if (password !== repeatPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Inscription réussie
+                setSuccess(true);
+                navigate("/login"); // Rediriger vers la page de connexion
+            })
+            .catch((error) => {
+                setError(error.message);
+            });
+    };
+
     return (
         <main className='mainLogin'>
             <div className="login">
                 <h1 className='h1_Login'>Register</h1>
-                <form onSubmit={null}>
+                <form onSubmit={handleRegister}>
                     <input
                         className='mailInput'
                         type='email'

@@ -201,6 +201,9 @@ iframe{
     .video-container{
         width: 90%;
     }
+    .castContainer{
+        gap: 40px;
+    }
 }
 @media screen and (min-width: 1200px){
     .imgDetails{
@@ -228,5 +231,8 @@ iframe{
     }
     .video-container{
         width: 50%;
+    }
+    .castContainer{
+        gap: 40px;
     }
 }

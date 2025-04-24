@@ -58,6 +58,42 @@ body{
     width: 50%;
     justify-content: space-evenly;
 }
+.accountOptions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerLoginLink p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.headerRegisterLink p{
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.headerRegisterLink{
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 0;
+    font-size: 15px;
+}
+.headerLoginLink{
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+.accountOptions{
+    gap: 5px;
+}
+.accountLoginOptions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
 @media screen and (min-width: 640px){
     header{
         width: 90%;
@@ -118,6 +154,33 @@ body{
         border: 1px solid #fff;
         border-radius: 50px;
         cursor: pointer;
+    }
+    .accountOptions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .accountLoginOptions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+    }
+    .headerRegisterLink{
+        text-decoration: none;
+        color: #ffffff;
+        margin-top: 0;
+    }
+    .headerLoginLink{
+        text-decoration: none;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+    .headerLoginLink p{
+        margin-bottom: 0;
+    }
+    .headerRegisterLink p{
+        margin-top: 0;
     }
 
 

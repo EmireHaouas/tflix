@@ -8,6 +8,10 @@
     flex-wrap: wrap;
     margin-top: 0px;
 }
+.searchResults{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .recomendedMoviesH2{
     color: #FFFFFF;
@@ -28,7 +32,7 @@
     .searchResults{
         display: flex;
         flex-direction: column;
-        padding-left: 160px;
+        padding-left: 0px;
     }
     .homeContainer{
         display: flex;
@@ -45,7 +49,7 @@
         margin-left: 42px;
     }
     .trendingMoviesSection{
-        padding-left: 160px;
+        padding-left: 0px;
         padding-bottom: 80px;
     }
 

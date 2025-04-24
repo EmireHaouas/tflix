@@ -51,6 +51,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
     return(
         <>
             <Header/>
+            <div className='searchContainer'>
             <SearchBar value={searchMovie} onChange={handleSearch} onClick={handleSearch} placeholder='Search for movies'/>
 
             {searchMovie && searchMovieResults.length > 0 && (
@@ -71,6 +72,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
                         <StandardCard key={item.id} item={item} bookmarked={bookmarked} handleBookMarked={handleBookMarked} className="standard-card"/>
                     ))}
                 </div>
+            </div>
             </div>
         </>
     )
