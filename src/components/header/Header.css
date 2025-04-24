@@ -5,6 +5,7 @@ header{
     justify-content: space-between;
     padding: 20px 20px;
     align-items: center;
+    z-index: 9999;
 }
 .nav a img {
     transition: all 0.3s ease;
@@ -12,7 +13,7 @@ header{
 
 .nav a:active img {
     transform: translateY(4px);
-    filter: brightness(0) invert(1);  /* Icône blanche au clic */
+    filter: brightness(0) invert(1);
 }
 
 body{

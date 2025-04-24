@@ -178,16 +178,17 @@ iframe{
     flex-direction: column;
 
 }
-.recommendationsMedia{
+.recommendationsMedia {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
     white-space: nowrap;
     gap: 20px;
-    padding: 10px;
+    padding: 10px 20px;
     scroll-behavior: smooth;
-    width: 90%;
-    align-self: end;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 @media screen and (min-width: 640px){
@@ -239,5 +240,9 @@ iframe{
     .castContainer{
         gap: 40px;
     }
+    .recommendationsMedia{
+        padding-left: 160px;
+    }
+
 
 }
