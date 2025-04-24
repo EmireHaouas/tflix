@@ -57,7 +57,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                 setCast(castRes.cast || []);
 
             } catch (err) {
-                setError('Erreur lors du chargement des données.');
+                setError('Error loading data.');
                 console.error(err);
             } finally {
                 setIsLoading(false)
@@ -81,7 +81,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
 
     const getProvidersList = () => {
         if (!providers || !providers['FR'] || !providers['FR'].flatrate) {
-            return "Aucune plateforme disponible pour ce média en France.";
+            return "No platform available for this media";
         }
 
         const platforms = providers['FR'].flatrate.map(platform => {

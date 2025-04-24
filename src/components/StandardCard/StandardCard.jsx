@@ -17,8 +17,11 @@ const StandardCard = ({item, bookmarked, handleBookMarked}) => {
         console.log(bookmarked);
     };
     const handleClick = () => {
-        const mediaType = item.media_type === 'movie' ? 'movie' : 'tv';
+        const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
+
         navigate(`/details/${mediaType}/${item.id}`);
+
+
     };
 
     return (

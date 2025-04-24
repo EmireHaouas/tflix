@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Movies.css';
 import Header from "../header/Header.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
@@ -10,6 +11,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [searchMovieResults, setSearchMovieResults] = useState([]);
     const [searchMovie, setSearchMovie] = useState('');
+    const navigate = useNavigate();
 
     // Api request to get trending movies
     useEffect(() => {
@@ -59,7 +61,11 @@ const Movies = ({bookmarked, handleBookMarked}) => {
                     <h2 className='recomendedH2'>Search Results</h2>
                     <div className='recommended'>
                         {searchMovieResults.map((item) => (
-                            <StandardCard key={item.id} item={item} bookmarked={bookmarked} handleBookMarked={handleBookMarked} className="standard-card"/>
+                            <StandardCard key={item.id}
+                            item={{ ...item, media_type: 'movie' }}
+                            bookmarked={bookmarked}
+                            handleBookMarked={handleBookMarked}
+                            className="standard-card"/>
                         ))}
                     </div>
                 </div>
