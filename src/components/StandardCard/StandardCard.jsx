@@ -27,7 +27,7 @@ const StandardCard = ({item, bookmarked, handleBookMarked, variant}) => {
     return (
         <>
             <div className={`stdCard ${variant ? `stdCard--${variant}` : ''}`}>
-            <div className='upperCard' onClick={handleClick} style={{backgroundImage: `url(${imageUrl})`}}>
+                <div className='upperCard' onClick={handleClick} style={{backgroundImage: `url(${imageUrl})`}}>
                     <div className='bookmark_StdCard' onClick={handleBookmarkClick}>
                         <img className='bookmarkIcon_StdCard' src={isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt='bookmark icon'/>
                     </div>

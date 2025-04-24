@@ -8,7 +8,7 @@ import iconAffiche from '../../assets/imgs/iconAffiche.png';
 import CastProfile from "../Props/CastProfile/CastProfile.jsx";
 
 
-const MediaDetails = ({bookmarked, handleBookmarked}) => {
+const MediaDetails = ({bookmarked, handleBookMark}) => {
     const { mediaType, id } = useParams();
     const [media, setMedia] = useState(null);
     const [providers, setProviders] = useState(null);
@@ -174,7 +174,7 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                     <div className='recommendationsMedia'>
 
                         {recommendations.map ((recommendation) => (
-                            <StandardCard key={recommendation.id} item={recommendation} handleBookMarked={handleBookmarked} bookmarked={bookmarked} variant="recommendation" />
+                            <StandardCard key={recommendation.id} item={recommendation} handleBookMarked={handleBookMark} bookmarked={bookmarked} variant="recommendation" />
                         )) }
                     </div>
                 </div>
