@@ -62,7 +62,7 @@ const Movies = ({bookmarked, handleBookMarked}) => {
                     <div className='recommended'>
                         {searchMovieResults.map((item) => (
                             <StandardCard key={item.id}
-                            item={{ ...item, media_type: 'movie' }}
+                                item={{ ...item, media_type: 'movie' }}
                             bookmarked={bookmarked}
                             handleBookMarked={handleBookMarked}
                             className="standard-card"/>

@@ -6,6 +6,7 @@ import iconNavMovie from '../../assets/imgs/icon-nav-movies.svg';
 import iconNavTv from '../../assets/imgs/icon-nav-tv-series.svg';
 import iconNavBookmark from '../../assets/imgs/icon-nav-bookmark.svg';
 import avatar from '../../assets/imgs/image-avatar.webp';
+import iconPhoenix from '../../assets/imgs/ProfilePicture/iconSheep.png';
 import { useLocation, Link } from "react-router-dom";
 
 const Header = () => {
@@ -58,7 +59,7 @@ const Header = () => {
                 </Link>
             </nav>
             <div className='accountOptions'>
-            <img onClick={handleAccountOptionsToggle} className='avatar' src={avatar} alt='avatar'/>
+            <img onClick={handleAccountOptionsToggle} className='avatar' src={iconPhoenix} alt='avatar'/>
                 { isAccountOptionsVisible &&(
                     <div className='accountLoginOptions'>
                         <Link className='headerLoginLink' to='/login'> <p>Login</p></Link>
