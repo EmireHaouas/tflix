@@ -67,7 +67,7 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
         fetchData();
     }, [id, mediaType]);
 
-    if (isLoading) return <p>loading...</p>;
+    if (isLoading) return <p className='loadingMessage'>loading...</p>;
 
     if (error) return <p>{error}</p>;
 
@@ -81,7 +81,7 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
 
     const getProvidersList = () => {
         if (!providers || !providers['FR'] || !providers['FR'].flatrate) {
-            return "No platform available for this media";
+            return `No platform available for this ${mediaType}`;
         }
 
         const platforms = providers['FR'].flatrate.map(platform => {
@@ -120,7 +120,7 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
                             ></iframe>
                         </div>
                     ) : (
-                        <p>No trailer available.</p>
+                        <p className='noTrailerMessage'>No trailer available.</p>
                     )
                 ) : (
                     <img

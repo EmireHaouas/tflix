@@ -122,6 +122,18 @@ iframe{
     padding: 10px 20px;
     scroll-behavior: smooth;
 }
+
+.providers-list {
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+}
+.noTrailerMessage{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+}
+
 .titleMedia{
     color: #FFFFFF;
     font-family: 'Outfit', sans-serif;
@@ -176,7 +188,14 @@ iframe{
 .recommendationsContainer{
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 
+}
+.loadingMessage{
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-left: 40%;
+    margin-top: 40vh;
 }
 .recommendationsMedia {
     display: flex;
@@ -192,6 +211,12 @@ iframe{
 }
 
 @media screen and (min-width: 640px){
+    .noTrailerMessage{
+        font-size: 18px;
+    }
+    .providers-list{
+        font-size: 18px;
+    }
     .mainDetails{
         margin-top: 40px;
     }
@@ -209,8 +234,26 @@ iframe{
     .castContainer{
         gap: 40px;
     }
+    .loadingMessage{
+        font-size: 22px;
+        color: #FFFFFF;
+        margin-left: 40%;
+        margin-top: 40vh;
+    }
 }
 @media screen and (min-width: 1200px){
+    .noTrailerMessage{
+        font-size: 20px;
+    }
+    .providers-list{
+        font-size: 20px;
+    }
+    .loadingMessage{
+        font-size: 28px;
+        color: #FFFFFF;
+        margin-left: 40%;
+        margin-top: 40vh;
+    }
     .imgDetails{
         width: 50%;
         height: auto;
