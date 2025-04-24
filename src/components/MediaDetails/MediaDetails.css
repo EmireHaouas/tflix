@@ -183,11 +183,13 @@ iframe{
     flex-direction: row;
     overflow-x: auto;
     white-space: nowrap;
-    gap: 0px;
+    gap: 20px;
     padding: 10px;
     scroll-behavior: smooth;
     width: 90%;
+    align-self: end;
 }
+
 @media screen and (min-width: 640px){
     .mainDetails{
         margin-top: 40px;
@@ -237,4 +239,5 @@ iframe{
     .castContainer{
         gap: 40px;
     }
+
 }

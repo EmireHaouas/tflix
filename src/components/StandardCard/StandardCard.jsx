@@ -6,7 +6,7 @@ import iconCategoryMovie from "../../assets/imgs/icon-category-movie.svg";
 import iconCategoryTv from "../../assets/imgs/icon-category-tv.svg";
 import {useNavigate} from "react-router-dom";
 
-const StandardCard = ({item, bookmarked, handleBookMarked}) => {
+const StandardCard = ({item, bookmarked, handleBookMarked, variant}) => {
     if (!item) return null;
     const imageUrl = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
     const navigate = useNavigate();
@@ -26,8 +26,8 @@ const StandardCard = ({item, bookmarked, handleBookMarked}) => {
 
     return (
         <>
-            <div className='stdCard'>
-                <div className='upperCard' onClick={handleClick} style={{backgroundImage: `url(${imageUrl})`}}>
+            <div className={`stdCard ${variant ? `stdCard--${variant}` : ''}`}>
+            <div className='upperCard' onClick={handleClick} style={{backgroundImage: `url(${imageUrl})`}}>
                     <div className='bookmark_StdCard' onClick={handleBookmarkClick}>
                         <img className='bookmarkIcon_StdCard' src={isBookmarked ? iconBookmarkFull : iconBookmarkEmpty} alt='bookmark icon'/>
                     </div>

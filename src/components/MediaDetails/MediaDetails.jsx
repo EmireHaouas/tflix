@@ -169,16 +169,17 @@ const MediaDetails = ({bookmarked, handleBookmarked}) => {
                 <div className="providers-list">
                     {getProvidersList()}
                 </div>
-            </div>
-            <div className='recommendationsContainer'>
-            <h2 className='moreTitle'>More like This</h2>
-            <div className='recommendationsMedia'>
+                <div className='recommendationsContainer'>
+                    <h2 className='moreTitle'>More like This</h2>
+                    <div className='recommendationsMedia'>
 
-            {recommendations.map ((recommendation) => (
-                <StandardCard key={recommendation.id} item={recommendation} handleBookMarked={handleBookmarked} bookmarked={bookmarked} />
-            )) }
+                        {recommendations.map ((recommendation) => (
+                            <StandardCard key={recommendation.id} item={recommendation} handleBookMarked={handleBookmarked} bookmarked={bookmarked} variant="recommendation" />
+                        )) }
+                    </div>
+                </div>
             </div>
-            </div>
+
             <div className='cast'>
                 <h2 className='h2_Cast'>Cast</h2>
                 <div className='castContainer'>

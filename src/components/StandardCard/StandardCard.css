@@ -58,6 +58,7 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
 .infosSection{
     display: flex;
     flex-direction: row;
@@ -115,5 +116,16 @@
         width: 80%;
         height: auto;
     }
+
+    .stdCard--recommendation {
+        flex: none;
+        width: 220px;
+    }
+
+    .stdCard--recommendation .upperCard {
+        width: 100%;
+        height: 140px;
+    }
+
 
 }
