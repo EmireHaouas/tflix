@@ -12,6 +12,15 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.noResultsMessage{
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20;
+    margin-top: 20px;
+    margin-left: 25px;
+}
 
 .recomendedMoviesH2{
     color: #FFFFFF;
