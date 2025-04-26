@@ -1,14 +1,16 @@
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './MediaDetails.css';
 import Header from "../header/Header.jsx";
 import StandardCard from "../StandardCard/StandardCard.jsx";
 import iconYoutube from '../../assets/imgs/iconYoutube.png';
 import iconAffiche from '../../assets/imgs/iconAffiche.png';
+import back_Arrow from '../../assets/imgs/back_Arrow.webp';
 import CastProfile from "../Props/CastProfile/CastProfile.jsx";
 
 
 const MediaDetails = ({bookmarked, handleBookMark}) => {
+    const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
     const { mediaType, id } = useParams();
     const [media, setMedia] = useState(null);
     const [providers, setProviders] = useState(null);
@@ -16,9 +18,10 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showTrailer, setShowTrailer] = useState(false);
-    const [recommendations, setRecommendations] = useState(null);
+    const [recommendations, setRecommendations] = useState([]);
     const [cast, setCast] = useState([]);
-    const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
+    const navigate = useNavigate();
+
 
     const formatDuration = (minutes) => {
         const hours = Math.floor(minutes / 60);
@@ -100,8 +103,20 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
     return (
         <>
             <Header />
+            <div className="backArrowContainer">
+                <img
+                    className="back_Arrow"
+                    src={back_Arrow}
+                    alt="back arrow icon"
+                    onClick={() => navigate(-1)}
+                />
+            </div>
+
             <div className='mainDetails'>
+
+
                 <h1 className='titleMedia'>{media.title || media.name}</h1>
+
 
 
 
@@ -123,6 +138,7 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
                         <p className='noTrailerMessage'>No trailer available.</p>
                     )
                 ) : (
+
                     <img
                         className='imgDetails'
                         src={media.backdrop_path
@@ -130,6 +146,7 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
                             : `https://image.tmdb.org/t/p/w500${media.poster_path}`}
                         alt={media.title || media.name}
                     />
+
                 )}
 
                 <div className='details_RuntimeContainer'>
@@ -178,20 +195,21 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
                         )) }
                     </div>
                 </div>
-            </div>
-
-            <div className='cast'>
-                <h2 className='h2_Cast'>Cast</h2>
-                <div className='castContainer'>
-                    {cast.length > 0 ? (
-                        cast.map((actor) => (
-                            <CastProfile key={actor.id} name={actor.name} character={actor.character} img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
-                        ))
-                    ) : (
-                        <p>No cast information available.</p>
-                    )}
+                <div className='cast'>
+                    <h2 className='h2_Cast'>Cast</h2>
+                    <div className='castContainer'>
+                        {cast.length > 0 ? (
+                            cast.map((actor) => (
+                                <CastProfile key={actor.id} name={actor.name} character={actor.character} img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
+                            ))
+                        ) : (
+                            <p>No cast information available.</p>
+                        )}
+                    </div>
                 </div>
             </div>
+
+
         </>
     );
 };

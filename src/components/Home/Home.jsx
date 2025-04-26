@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './Home.css';
 import Trending from '../Trending/Trending.jsx';
 import Header from '../Header/Header.jsx';
@@ -8,7 +9,8 @@ import StandardCard from "../StandardCard/StandardCard.jsx";
 const Home = ({bookmarked, handleBookMarked} ) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473';
     const [searchAnyResults, setSearchAnyResults] = useState([]);
-    const [search, setSearch] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [search, setSearch] = useState(searchParams.get('q') || '');
     const [trending, setTrending] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
@@ -54,7 +56,9 @@ const Home = ({bookmarked, handleBookMarked} ) => {
     const handleSearch = (event) => {
         const value = event.target.value;
         setSearch(value);
+        setSearchParams(value ? { q: value } : {});
     };
+
 
     return (
         <>

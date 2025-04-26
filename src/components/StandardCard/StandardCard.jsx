@@ -38,9 +38,13 @@ const StandardCard = ({item, bookmarked, handleBookMarked, variant}) => {
                         <p className='p_YearMovieStd'>{item.release_date ? item.release_date.split('-')[0] : 'N/A'} . </p>
                         <img
                             className="categoryIcon_Std"
-                            src={item?.media_type === "movie" ? iconCategoryMovie : iconCategoryTv}
+                            src={
+                                (item?.media_type === "movie" || item?.title) ? iconCategoryMovie :
+                                    (item?.media_type === "tv" || item?.name) ? iconCategoryTv : iconCategoryMovie
+                            }
                             alt="category icon"
                         />
+
                         <p className='itemTypeStd'>{item.media_type}</p>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import {BrowserRouter, BrowserRouter as Router, Route, Routes,} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Series from './components/Series/Series.jsx';
 import Movies from "./components/Movies/Movies.jsx";
@@ -9,7 +9,6 @@ import MediaDetails from "./components/MediaDetails/MediaDetails.jsx";
 import Login from "./components/Authentification/Login/Login.jsx";
 import Register from './components/Authentification/Register/Register.jsx';
 import ProfileSetup from "./components/Authentification/ProfileSetup/ProfileSetup.jsx";
-import bookmarked from "./components/Bookmarked/Bookmarked.jsx";
 
 function App() {
     const [bookmarked, setBookMarked] = useState(() => {

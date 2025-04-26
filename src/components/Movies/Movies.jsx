@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './Movies.css';
 import Header from "../header/Header.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
@@ -8,9 +9,10 @@ const Movies = ({ bookmarked, handleBookMarked }) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473'
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [searchMovieResults, setSearchMovieResults] = useState([]);
-    const [searchMovie, setSearchMovie] = useState('');
+    const [searchMovieParams, setSearchParams] = useSearchParams();
+    const [searchMovie, setSearchMovie] = useState(searchMovieParams.get('q') || '');
     const [isSearching, setIsSearching] = useState(false);
-    const [hasSearched, setHasSearched] = useState(false);  // Flag pour vérifier si la recherche a été effectuée
+    const [hasSearched, setHasSearched] = useState(false);
 
     // Api request to get trending movies
     useEffect(() => {
@@ -39,12 +41,12 @@ const Movies = ({ bookmarked, handleBookMarked }) => {
                     .catch((error) => {
                         console.error(`Error: ${error}`);
                         setIsSearching(false);
-                        setHasSearched(true);  // Même si une erreur se produit, on marque la recherche comme terminée
+                        setHasSearched(true);
                     });
             } else {
                 setSearchMovieResults([]);
                 setIsSearching(false);
-                setHasSearched(false);  // Si le champ est vide, la recherche n'est pas encore effectuée
+                setHasSearched(false);
             }
         }, 300);
         return () => clearTimeout(timeoutIdSearchMovies);
@@ -53,7 +55,8 @@ const Movies = ({ bookmarked, handleBookMarked }) => {
     const handleSearch = (event) => {
         const value = event.target.value;
         setSearchMovie(value);
-    }
+        setSearchParams(value ? { q: value } : {});
+    };
 
     return (
         <>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './Series.css';
 import Header from "../header/Header.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
@@ -8,7 +9,8 @@ const Series = ({bookmarked, handleBookMarked}) => {
     const apiKey = '7898561c441dbd5aa0c4b3a3677ff473'
     const [trendingSeries, setTrendingSeries] = useState([]);
     const [searchSerieResults, setSearchSerieResults] = useState([]);
-    const [searchSerie, setSearchSerie] = useState('');
+    const [searchSerieParams, setSearchParams] = useSearchParams();
+    const [searchSerie, setSearchSerie] = useState(searchSerieParams.get('q') || '');
     const [isSearching, setIsSearching] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
 
@@ -55,7 +57,8 @@ const Series = ({bookmarked, handleBookMarked}) => {
     const handleSearch = (event) => {
         const value = event.target.value;
         setSearchSerie(value);
-    }
+        setSearchParams(value ? { q: value } : {});
+    };
     return(
         <>
             <Header/>
