@@ -46,7 +46,7 @@ npm run dev
 Open your browser
 Visit http://localhost:5173 to view the app.
 
-## 🔮 Roadmap / Future Features
+## 🔮 Future Features
 
 Here’s a list of features I plan to add in the future:
 
