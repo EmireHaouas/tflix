@@ -1,12 +1,59 @@
-# React + Vite
+# TFLIX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A responsive web app that allows users to find out which streaming platforms offer a specific movie or TV show. It features trending titles, trailers, detailed descriptions, cast information, personalized recommendations, and a wishlist to save movies and shows for later.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+🔗 [Live Demo](https://emire-haouas.dev/tflix/)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Preview](https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screenshot%201.png)
+
+
+## ✨ Features
+- Search for movies and TV shows across multiple streaming platforms
+- View trending movies and shows in real-time
+- Watch trailers directly from the app
+- Access detailed descriptions, cast information, and ratings
+- Receive personalized movie and show recommendations
+- Add movies and shows to a personal wishlist for later viewing
+- Fully responsive design, optimized for all devices
+
+## 🛠️ Technologies
+- Frontend: React, Vite
+- Styling: Custom CSS
+- Data: TMDB (The Movie Database) API
+- Storage: LocalStorage for wishlist management
+
+## 🚀 Installation
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/EmireHaouas/tflix.git
+````
+````bash
+cd tflix
+````
+````bash
+npm install
+
+````
+
+```bash
+npm run dev
+````
+Open your browser
+Visit http://localhost:5173 to view the app.
+
+## 🔮 Roadmap / Future Features
+
+Here’s a list of features I plan to add in the future:
+
+- **User authentication (via Firebase)**: Allow users to sign up and log in using Firebase authentication.
+- **Avatar selection**: Allow users to choose an avatar during registration.
+- **Language and country preferences**: Save users' language and country preferences for personalized recommendations.
+
+
+
+Feel free to contribute ideas or submit pull requests for new features!
