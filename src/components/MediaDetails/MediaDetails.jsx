@@ -195,17 +195,18 @@ const MediaDetails = ({bookmarked, handleBookMark}) => {
                         )) }
                     </div>
                 </div>
-                <div className='cast'>
-                    <h2 className='h2_Cast'>Cast</h2>
-                    <div className='castContainer'>
-                        {cast.length > 0 ? (
-                            cast.map((actor) => (
-                                <CastProfile key={actor.id} name={actor.name} character={actor.character} img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
-                            ))
-                        ) : (
-                            <p>No cast information available.</p>
-                        )}
-                    </div>
+
+            </div>
+            <div className='cast'>
+                <h2 className='h2_Cast'>Cast</h2>
+                <div className='castContainer'>
+                    {cast.length > 0 ? (
+                        cast.map((actor) => (
+                            <CastProfile key={actor.id} name={actor.name} character={actor.character} img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
+                        ))
+                    ) : (
+                        <p>No cast information available.</p>
+                    )}
                 </div>
             </div>
 
