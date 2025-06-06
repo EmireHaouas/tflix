@@ -22,7 +22,7 @@ const Register = () => {
             .then((userCredential) => {
                 // Inscription réussie
                 setSuccess(true);
-                navigate("/login"); // Rediriger vers la page de connexion
+                navigate("/profilesetup"); // Rediriger vers la page de connexion
             })
             .catch((error) => {
                 setError(error.message);
