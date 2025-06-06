@@ -44,8 +44,12 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    {error && <p className="loginError">{error}</p>}
 
-                    <button className="btnLogin">Login to your account</button>
+                    <button className="btnLogin" disabled={!email || !password}>
+                        Login to your account
+                    </button>
+
                 </form>
                 <div className="noAccount">
                     <p className="sign">
