@@ -1,120 +1,118 @@
-.login{
-    display: flex;
-    flex-direction: column;
-    background-color: #161D2F;
-    width: 400px;
-    height: 418px;
-    font-family: 'Outfit', sans-serif;
-    border-radius: 15px;
-    align-self: center;
-    padding-bottom: 40px;
-
-
-
-}.h1_Login{
-     color: #FFFFFF;
-     font-family: 'Outfit', sans-serif;
-     font-size: 32px;
-     margin-bottom: 30px;
-     margin-left: 25px;
- }
-.mailInput{
-    background-color: #161D2F;
-    border-top-width: 0;
-    border-right-width: 0;
-    border-left-width: 0;
-    border-bottom-width: 2px;
-    border-bottom-color: #5A698F;
-    width: 336px;
-    height: 37px;
-    align-self: center;
-    margin-bottom: 20px;
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
+.login {
+  display: flex;
+  flex-direction: column;
+  background-color: #161d2f;
+  width: 400px;
+  height: 418px;
+  font-family: "Outfit", sans-serif;
+  border-radius: 15px;
+  align-self: center;
+  padding-bottom: 40px;
 }
-.passwordInput{
-    background-color: #161D2F;
-    border-top-width: 0;
-    border-right-width: 0;
-    border-left-width: 0;
-    border-bottom-width: 2px;
-    border-bottom-color: #5A698F;
-    width: 336px;
-    height: 37px;
-    align-self: center;
-    margin-bottom: 25px;
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
+.h1_Login {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-left: 25px;
 }
-.mailInput::placeholder{
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
+.mailInput {
+  background-color: #161d2f;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 2px;
+  border-bottom-color: #5a698f;
+  width: 336px;
+  height: 37px;
+  align-self: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
 }
-.passwordInput::placeholder{
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
+.passwordInput {
+  background-color: #161d2f;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 2px;
+  border-bottom-color: #5a698f;
+  width: 336px;
+  height: 37px;
+  align-self: center;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
 }
-.btnLogin{
-    background-color: #FC4747;
-    width: 336px;
-    height: 48px;
-    border-radius: 5px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
-    align-self: center;
-    border-width: 0;
-    cursor: pointer;
+.mailInput::placeholder {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
 }
-.sign{
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
-    align-self: center;
-    color: #FFFFFF
+.passwordInput::placeholder {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
 }
-.signSpan{
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
-    color: #FC4747;
-    cursor: pointer;
+.btnLogin {
+  background-color: #fc4747;
+  width: 336px;
+  height: 48px;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  align-self: center;
+  border-width: 0;
+  cursor: pointer;
 }
-.registerLink{
-    text-decoration: none;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
-    color: #FC4747;
-    cursor: pointer;
+.sign {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  align-self: center;
+  color: #ffffff;
 }
-.noAccount{
-    align-self: center;
+.signSpan {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  color: #fc4747;
+  cursor: pointer;
 }
-.mainLogin{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 200px;
+.registerLink {
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  color: #fc4747;
+  cursor: pointer;
 }
-.movieIcon{
-    width: 32px;
-    height: 25px;
-    align-self: center;
-    margin-bottom: 50px;
+.noAccount {
+  align-self: center;
 }
-.mailInput:focus{
-    outline: none;
+.mainLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 200px;
 }
-.passwordInput:focus{
-    outline: none;
+.movieIcon {
+  width: 32px;
+  height: 25px;
+  align-self: center;
+  margin-bottom: 50px;
 }
-.mailInput::placeholder{
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 24px;
+.mailInput:focus {
+  outline: none;
 }
-form{
-    display: flex;
-    flex-direction: column;
+.passwordInput:focus {
+  outline: none;
+}
+.mailInput::placeholder {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
 }

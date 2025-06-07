@@ -1,90 +1,92 @@
 .card {
-    background-size: cover;
-    background-position: center;
-    width: 240px;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 10px;
-    cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  width: 240px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.title_Movie{
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 0;
-    margin-left: 15px;
+.title_Movie {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-left: 15px;
 }
-.infosTrendCard{
-    display: flex;
-    flex-direction: row;
-    color: #FFFFFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
+.infosTrendCard {
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
 }
 .infosTrendCard p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-.p_YearMovie{
-    margin-left: 15px;
-    margin-top: 0;
+.p_YearMovie {
+  margin-left: 15px;
+  margin-top: 0;
 }
-.itemType{
-    margin-top: 0;
+.itemType {
+  margin-top: 0;
 }
-.categoryIcon{
-    width: 12px;
-    height: 12px;
-    margin-left: 5px;
-    margin-right: 5px;
+.categoryIcon {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
-.category{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.bookmarkIcon{
-    width: 11px;
-    height: 14px;
-    cursor: pointer;
-    opacity: 1;
-    z-index: 1;
+.bookmarkIcon {
+  width: 11px;
+  height: 14px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 1;
 }
 .bookmark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-bottom: 20%;
-    margin-right: 5%;
-    align-self: flex-end;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-bottom: 20%;
+  margin-right: 5%;
+  align-self: flex-end;
+  position: relative;
 }
 
-.card:hover{
-    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
-    transition: all 0.3s ease;
-    border-color: #0ff;
-    box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+.card:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  border-color: #0ff;
+  box-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 15px #0ff;
 }
-@media screen and (min-width: 640px){
-    .card{
-        width: 470px;
-        height: 230px;
-        border-radius: 10px;
-    }
-    .title_Movie{
-        font-size: 24px;
-    }
-    .infosTrendCard{
-        font-size: 15px;
-    }
+@media screen and (min-width: 640px) {
+  .card {
+    width: 470px;
+    height: 230px;
+    border-radius: 10px;
+  }
+  .title_Movie {
+    font-size: 24px;
+  }
+  .infosTrendCard {
+    font-size: 15px;
+  }
+}
 
-}
-/*24 15*/

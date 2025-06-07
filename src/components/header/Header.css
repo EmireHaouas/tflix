@@ -1,190 +1,230 @@
-header{
-    background-color: #161D2F;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px 20px;
-    align-items: center;
-    z-index: 9999;
+header {
+  background-color: #161d2f;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 20px;
+  align-items: center;
+  z-index: 9999;
 }
 .nav a img {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav a:active img {
-    transform: translateY(4px);
-    filter: brightness(0) invert(1);
+  transform: translateY(4px);
+  filter: brightness(0) invert(1);
 }
 
-body{
-    margin: 0;
-    background-color: #10141E;
+body {
+  margin: 0;
+  background-color: #10141e;
 }
-.iconHome{
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
+.iconHome {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
-.logo{
-    width: 25px;
+.logo {
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+.avatar {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.iconNavMovie {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.iconNavTv {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.iconNavBookmark {
+  width: 15.5px;
+  height: 18px;
+  cursor: pointer;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  justify-content: space-evenly;
+}
+.accountOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.headerLoginLink p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.headerRegisterLink p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.headerRegisterLink {
+  text-decoration: none;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 15px;
+}
+.headerLoginLink {
+  text-decoration: none;
+  color: #ffffff;
+  margin-bottom: 0;
+  font-size: 15px;
+}
+.accountOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: relative; /* ← CLÉ POUR LE POSITIONNEMENT DU MENU */
+}
+
+.accountLoginOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.pseudoText {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.logoutBtn {
+  background-color: transparent;
+  border: 1px solid #fc4747;
+  color: #fc4747;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background-color: #fc4747;
+  color: #ffffff;
+}
+.accountDropdown {
+  background-color: #1e253b;
+  border: 1px solid #2c344b;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 95%;
+}
+.headerProfileLink {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 640px) {
+  header {
+    width: 90%;
+    border-radius: 10px;
+    position: relative;
+    left: 20px;
+    margin-top: 0px;
+    top: 20px;
+  }
+  .iconHome {
+    width: 20px;
     height: 20px;
     cursor: pointer;
-}
-.avatar{
-     width: 24px;
-     height: 24px;
+  }
+  .logo {
+    width: 32px;
+    height: 25.6px;
+    cursor: pointer;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
     border: 1px solid #fff;
     border-radius: 50px;
     cursor: pointer;
- }
-.iconNavMovie{
-    width: 18px;
-    height: 18px;
+  }
+  .iconNavMovie {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-}
-.iconNavTv{
-    width: 18px;
-    height: 18px;
+  }
+  .iconNavTv {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-}
-.iconNavBookmark{
-    width: 15.5px;
-    height: 18px;
+  }
+  .iconNavBookmark {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+  }
 }
-.nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
-    justify-content: space-evenly;
-}
-.accountOptions{
+@media screen and (min-width: 1200px) {
+  header {
+    flex-direction: column;
+    width: 80px;
+    height: 90vh;
+    position: fixed;
+  }
+  .nav {
+    flex-direction: column;
+    height: 300px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .accountOptions {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.headerLoginLink p{
-    margin-bottom: 0;
-    margin-top: 0;
-}
-.headerRegisterLink p{
-    margin-top: 0;
-    margin-bottom: 0;
-
-}
-.headerRegisterLink{
-    text-decoration: none;
-    color: #ffffff;
-    margin-top: 0;
-    font-size: 15px;
-}
-.headerLoginLink{
-    text-decoration: none;
-    color: #ffffff;
-    margin-bottom: 0;
-    font-size: 15px;
-}
-.accountOptions{
-    gap: 5px;
-}
-.accountLoginOptions{
+  }
+  .accountLoginOptions {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-}
-
-@media screen and (min-width: 640px){
-    header{
-        width: 90%;
-        border-radius: 10px;
-        position: relative;
-        left: 20px;
-        margin-top: 0px;
-        top: 20px;
-    }
-    .iconHome{
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
-    .logo{
-        width: 32px;
-        height: 25.6px;
-        cursor: pointer;
-    }
-    .avatar{
-        width: 32px;
-        height: 32px;
-        border: 1px solid #fff;
-        border-radius: 50px;
-        cursor: pointer;
-    }
-    .iconNavMovie{
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
-    .iconNavTv{
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
-    .iconNavBookmark{
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
-
-}
-@media screen and (min-width: 1200px){
-    header{
-        flex-direction: column;
-        width: 80px;
-        height: 90vh;
-        position: fixed;
-    }
-    .nav{
-        flex-direction: column;
-        height: 300px;
-    }
-    .avatar{
-        width: 40px;
-        height: 40px;
-        border: 1px solid #fff;
-        border-radius: 50px;
-        cursor: pointer;
-    }
-    .accountOptions{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .accountLoginOptions{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 7px;
-    }
-    .headerRegisterLink{
-        text-decoration: none;
-        color: #ffffff;
-        margin-top: 0;
-    }
-    .headerLoginLink{
-        text-decoration: none;
-        color: #ffffff;
-        margin-bottom: 0;
-    }
-    .headerLoginLink p{
-        margin-bottom: 0;
-    }
-    .headerRegisterLink p{
-        margin-top: 0;
-    }
-
-
-
-
+    gap: 7px;
+  }
+  .headerRegisterLink {
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 0;
+  }
+  .headerLoginLink {
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 0;
+  }
+  .headerLoginLink p {
+    margin-bottom: 0;
+  }
+  .headerRegisterLink p {
+    margin-top: 0;
+  }
 }

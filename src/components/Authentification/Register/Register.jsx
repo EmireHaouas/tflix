@@ -1,75 +1,91 @@
-import React, { useState } from 'react';
-import './Register.css';
+import React, { useState } from "react";
+import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase";
+import { useUser } from "../../../context/UserContext";
 
 const Register = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [repeatPassword, setRepeatPassword] = useState('');
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        if (password !== repeatPassword) {
-            setError("Passwords do not match");
-            return;
-        }
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Inscription réussie
-                setSuccess(true);
-                navigate("/profilesetup"); // Rediriger vers la page de connexion
-            })
-            .catch((error) => {
-                setError(error.message);
-            });
-    };
+  const { user, loading } = useUser();
 
-    return (
-        <main className='mainLogin'>
-            <div className="login">
-                <h1 className='h1_Login'>Register</h1>
-                <form onSubmit={handleRegister}>
-                    <input
-                        className='mailInput'
-                        type='email'
-                        placeholder='Email address'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required/>
+  const handleRegister = (e) => {
+    e.preventDefault();
 
-                    <input
-                        className='passwordInput'
-                        type='password'
-                        placeholder='Password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required/>
+    if (password !== repeatPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-                    <input
-                        className='passwordInput'
-                        type='password'
-                        placeholder='Repeat Password'
-                        value={repeatPassword}
-                        onChange={(e) => setRepeatPassword(e.target.value)}
-                        required/>
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        setSuccess(true);
+        navigate("/profileSetup");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
-                    <button className='btnLogin' type="submit">Create Account</button>
-                </form>
+  return (
+    <main className="mainLogin">
+      <div className="login">
+        <h1 className="h1_Login">Register</h1>
+        <form onSubmit={handleRegister}>
+          <input
+            className="mailInput"
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-                {error && <p className="errorMessage">{error}</p>}
-                {success && <p className="successMessage">Registration successful! Please log in.</p>}
+          <input
+            className="passwordInput"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-                <div className="noAccount">
-                    <p className='sign'>Already have an account? <span className='signSpan'><Link to='/login' className='registerLink'>Log In </Link></span></p>
-                </div>
-            </div>
-        </main>
-    );
+          <input
+            className="passwordInput"
+            type="password"
+            placeholder="Repeat Password"
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
+            required
+          />
+
+          <button className="btnLogin" type="submit">
+            Create Account
+          </button>
+        </form>
+
+        {error && <p className="errorMessage">{error}</p>}
+        {success && <p className="successMessage">Registration successful!</p>}
+
+        <div className="noAccount">
+          <p className="sign">
+            Already have an account?{" "}
+            <span className="signSpan">
+              <Link to="/login" className="registerLink">
+                Log In
+              </Link>
+            </span>
+          </p>
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default Register;
