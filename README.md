@@ -1,60 +1,74 @@
 # TFLIX
 
-A responsive web app that allows users to find out which streaming platforms offer a specific movie or TV show. It features trending titles, trailers, detailed descriptions, cast information, personalized recommendations, and a wishlist to save movies and shows for later.
+A responsive web app that allows users to discover which streaming platforms offer a specific movie or TV show. It includes trending content, trailers, detailed descriptions, cast info, a personalized wishlist, and customizable user profiles.
 
 🔗 [Live Demo](https://emire-haouas.dev/tflix/)
 
 ![Preview](https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screenshot%201.png)
 
+---
+
 ## ✨ Features
 
-- Search for movies and TV shows across multiple streaming platforms
-- View trending movies and shows in real-time
-- Watch trailers directly from the app
-- Access detailed descriptions, cast information, and ratings
-- Receive personalized movie and show recommendations
-- Add movies and shows to a personal wishlist for later viewing
-- Fully responsive design, optimized for all devices
+- 🔎 Search for movies and TV shows across multiple streaming platforms
+- 🔥 View real-time trending content
+- ▶️ Watch trailers directly within the app
+- 📋 Access detailed descriptions, cast info, and ratings
+- ❤️ Save favorites to a personal wishlist
+- 🌐 Personalized recommendations based on user preferences
+- 🧑‍💻 User authentication via Firebase
+- 🖼️ Avatar selection during registration and profile editing
+- 🌍 Set language and country preferences
+- 🔁 Edit profile (pseudo, avatar, language, country) at any time
+- ⏳ Loading spinners for login, registration, and profile updates
+- ✅ LocalStorage caching for faster profile load
+- 📱 Fully responsive design for desktop, tablet, and mobile
+
+---
 
 ## 🛠️ Technologies
 
-- Frontend: React, Vite
-- Styling: Custom CSS
-- Data: TMDB (The Movie Database) API
-- Storage: LocalStorage for wishlist management
+- **Frontend**: React, Vite
+- **Styling**: Custom CSS
+- **Authentication & Data**: Firebase (Auth & Firestore), TMDB API
+- **Storage**: Firebase + LocalStorage
+
+---
 
 ## 🚀 Installation
 
-Follow these steps to run the project locally:
-
-1. **Clone the repository**
+To run the project locally:
 
 ```bash
 git clone https://github.com/EmireHaouas/tflix.git
-```
-
-```bash
 cd tflix
-```
-
-```bash
 npm install
-
-```
-
-```bash
 npm run dev
 ```
 
-Open your browser
-Visit http://localhost:5173 to view the app.
+Then open your browser at [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🧪 Recent Improvements 
+
+- 🔄 Added loading spinners to login, registration, and profile save buttons
+- 🎭 Implemented profile editing (including avatar, country, language, and pseudo)
+- 📷 Created dynamic avatar system with multiple choices (Disney-style, pop culture, etc.)
+- ⚙️ Improved form validation and error handling
+- 💾 Cached user profile in `localStorage` for smoother UX
+- 🎨 UI refinements to select dropdowns and responsive layout
+
+---
 
 ## 🔮 Future Features
 
-Here’s a list of features I plan to add in the future:
+- 📺 Multi-language interface
+- 📊 Viewing history and analytics
+- 🎬 Trailer playback enhancements
+- 🧠 Smarter recommendation engine
+- 🔔 Notifications and reminders for upcoming releases
 
-- **User authentication (via Firebase)**: Allow users to sign up and log in using Firebase authentication.
-- **Avatar selection**: Allow users to choose an avatar during registration.
-- **Language and country preferences**: Save users' language and country preferences for personalized recommendations.
+---
 
-Feel free to contribute ideas or submit pull requests for new features!
+Feel free to contribute by submitting issues or pull requests!
