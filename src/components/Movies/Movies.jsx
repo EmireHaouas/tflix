@@ -21,6 +21,10 @@ const Movies = ({ bookmarked, handleBookMarked }) => {
 
   const { profile, loading } = useUser();
 
+  const deleteSearch = () => {
+    setSearchMovie("");
+  };
+
   // trending movies
   useEffect(() => {
     if (loading) return;
@@ -88,6 +92,10 @@ const Movies = ({ bookmarked, handleBookMarked }) => {
           value={searchMovie}
           onChange={handleSearch}
           placeholder="Search for movies"
+          deleteSearch={deleteSearch}
+          iconVisibility={
+            searchMovie ? "deleteSearchIcon" : "deleteSearchIconHide"
+          }
         />
 
         {searchMovie && searchMovieResults.length > 0 && (

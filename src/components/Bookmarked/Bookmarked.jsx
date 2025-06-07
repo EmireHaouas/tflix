@@ -7,7 +7,9 @@ import StandardCard from "../StandardCard/StandardCard.jsx";
 const Bookmarked = ({ bookmarked, handleBookMarked }) => {
   const [searchBookmarked, setSearchBookmarked] = useState("");
   const [filteredBookmarked, setFilteredBookmarked] = useState([]);
-
+  const deleteSearch = () => {
+    setSearchBookmarked("");
+  };
   useEffect(() => {
     const timeoutIdBookmarked = setTimeout(() => {
       if (searchBookmarked === "") {
@@ -32,6 +34,10 @@ const Bookmarked = ({ bookmarked, handleBookMarked }) => {
         value={searchBookmarked}
         onChange={(e) => setSearchBookmarked(e.target.value)}
         placeholder="Search for bookmarked shows"
+        deleteSearch={deleteSearch}
+        iconVisibility={
+          searchBookmarked ? "deleteSearchIcon" : "deleteSearchIconHide"
+        }
       />
 
       <div className="bookmarkedContainer">

@@ -21,6 +21,10 @@ const Series = ({ bookmarked, handleBookMarked }) => {
 
   const { profile, loading } = useUser();
 
+  const deleteSearch = () => {
+    setSearchSerie("");
+  };
+
   // ➤ Trending Series
   useEffect(() => {
     if (loading) return;
@@ -89,6 +93,10 @@ const Series = ({ bookmarked, handleBookMarked }) => {
           onChange={handleSearch}
           onClick={handleSearch}
           placeholder="Search for TV series"
+          deleteSearch={deleteSearch}
+          iconVisibility={
+            searchSerie ? "deleteSearchIcon" : "deleteSearchIconHide"
+          }
         />
 
         {searchSerie && searchSerieResults.length > 0 && (

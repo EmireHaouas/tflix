@@ -21,6 +21,10 @@ const Home = ({ bookmarked, handleBookMarked }) => {
   const { profile, loading } = useUser();
   const lang = getUserLanguage(profile);
   const region = getUserRegion(profile);
+  const deleteSearch = () => {
+    setSearch("");
+  };
+
   useEffect(() => {
     if (loading) return;
 
@@ -37,7 +41,7 @@ const Home = ({ bookmarked, handleBookMarked }) => {
   }, [search, loading, lang, region]);
 
   useEffect(() => {
-    if (loading || !profile) return;
+    if (loading) return;
 
     const lang = getUserLanguage(profile);
     const region = getUserRegion(profile);
@@ -65,6 +69,7 @@ const Home = ({ bookmarked, handleBookMarked }) => {
         setHasSearched(false);
       }
     }, 300);
+
     return () => clearTimeout(timeoutIdSearchAny);
   }, [search, loading, profile]);
 
@@ -83,6 +88,8 @@ const Home = ({ bookmarked, handleBookMarked }) => {
           onClick={handleSearch}
           onChange={handleSearch}
           placeholder="Search for movies or TV series"
+          deleteSearch={deleteSearch}
+          iconVisibility={search ? "deleteSearchIcon" : "deleteSearchIconHide"}
         />
 
         {search && searchAnyResults.length > 0 && (

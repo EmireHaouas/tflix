@@ -2,7 +2,14 @@ import React from "react";
 import "./SearchBar.css";
 import iconSearch from "../../assets/imgs/icon-search.svg";
 
-const SearchBar = ({ onClick, value, onChange, placeholder }) => {
+const SearchBar = ({
+  onClick,
+  value,
+  onChange,
+  placeholder,
+  deleteSearch,
+  iconVisibility,
+}) => {
   return (
     <div className="searchBar">
       <img
@@ -18,6 +25,9 @@ const SearchBar = ({ onClick, value, onChange, placeholder }) => {
         type="text"
         placeholder={placeholder}
       />
+      <p className={iconVisibility} onClick={deleteSearch}>
+        X
+      </p>
     </div>
   );
 };

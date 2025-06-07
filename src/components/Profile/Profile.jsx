@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import "./Profile.css";
+import Countries from "../Datas/Countries.jsx";
+import TmdbLanguages from "../Datas/TmdbLanguages.js";
+import back_Arrow from "../../assets/imgs/back_Arrow.webp";
+import loadingIcon from "../../assets/imgs/loadingIcon.gif";
 
 const Profile = () => {
   const { profile, user, loading, setProfile } = useUser();
@@ -12,6 +16,13 @@ const Profile = () => {
   const [pseudo, setPseudo] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
+  const [loadingProfileUpdate, setLoadingProfileUpdate] = useState(false);
+  const getCountryLabel = (code) =>
+    Countries.find((c) => c.code === code)?.label || code;
+
+  const getLanguageLabel = (code) =>
+    TmdbLanguages.find((l) => l.code === code)?.label || code;
+
   useEffect(() => {
     if (profile) {
       setPseudo(profile.pseudo);
@@ -22,14 +33,16 @@ const Profile = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
     if (!pseudo.trim() || !country.trim() || !language.trim()) {
       alert("All fields must be filled in.");
       return;
     }
 
     try {
-      const ref = doc(db, "users", user.uid);
+      setLoadingProfileUpdate(true);
 
+      const ref = doc(db, "users", user.uid);
       const newProfile = {
         ...profile,
         pseudo,
@@ -48,6 +61,8 @@ const Profile = () => {
       setEditing(false);
     } catch (error) {
       console.error("Error while updating the profile:", error);
+    } finally {
+      setLoadingProfileUpdate(false); // ✅ reste ici
     }
   };
 
@@ -62,6 +77,14 @@ const Profile = () => {
 
   return (
     <div className="profileContainer">
+      <div className="backArrowContainer">
+        <img
+          className="back_Arrow"
+          src={back_Arrow}
+          alt="back arrow icon"
+          onClick={() => navigate(-1)}
+        />
+      </div>
       <img className="profileAvatar" src={profile.avatar} alt="Avatar" />
 
       {editing ? (
@@ -72,31 +95,56 @@ const Profile = () => {
             onChange={(e) => setPseudo(e.target.value)}
             placeholder="Pseudo"
           />
-          <input
-            type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            placeholder="Pays"
-          />
-          <input
-            type="text"
+
+          <select value={country} onChange={(e) => setCountry(e.target.value)}>
+            <option value="">Select your country</option>
+            {Countries.map((c) => (
+              <option key={c.code} value={c.code}>
+                {c.label}
+              </option>
+            ))}
+          </select>
+
+          <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            placeholder="Langue"
-          />
-          <button type="submit">Enregistrer</button>
+          >
+            <option value="">Select your language</option>
+            {TmdbLanguages.map((l) => (
+              <option key={l.code} value={l.code}>
+                {l.label}
+              </option>
+            ))}
+          </select>
+
+          <button type="submit" disabled={loadingProfileUpdate}>
+            {loadingProfileUpdate ? (
+              <img
+                src={loadingIcon}
+                alt="loading..."
+                className="loadingSpinner"
+              />
+            ) : (
+              "Save"
+            )}
+          </button>
+
           <button type="button" onClick={() => setEditing(false)}>
-            Annuler
+            Cancel
           </button>
         </form>
       ) : (
         <>
           <h2 className="profileName">{profile.pseudo}</h2>
           <p className="profileEmail">📧 {user.email}</p>
-          <p className="profileCountry">🌍 {profile.country}</p>
-          <p className="profileLanguage">🗣️ {profile.language}</p>
+          <p className="profileCountry">
+            🌍 {getCountryLabel(profile.country)}
+          </p>
+          <p className="profileLanguage">
+            🗣️ {getLanguageLabel(profile.language)}
+          </p>
           <button className="editBtn" onClick={() => setEditing(true)}>
-            Modifier
+            Edit Profile
           </button>
         </>
       )}

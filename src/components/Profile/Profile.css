@@ -24,6 +24,10 @@
   font-weight: 600;
   margin: 10px 0 5px;
 }
+.loadingSpinner {
+  height: 38px;
+  vertical-align: middle;
+}
 
 .profileEmail,
 .profileCountry,
@@ -56,13 +60,39 @@
   margin-top: 20px;
 }
 
-.profileEditForm input {
+.profileEditForm input,
+.profileEditForm select {
   padding: 10px;
   border: none;
   border-radius: 6px;
   background-color: #10141e;
   color: white;
   font-size: 14px;
+  font-family: "Outfit", sans-serif;
+}
+
+select {
+  border-bottom: 2px solid #5a698f;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border 0.3s ease;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='white' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+select:focus {
+  border-color: #fc4747;
+}
+
+select option {
+  background-color: #161d2f;
+  color: white;
 }
 
 .profileEditForm button[type="submit"] {
