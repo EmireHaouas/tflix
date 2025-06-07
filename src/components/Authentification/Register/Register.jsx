@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useUser } from "../../../context/UserContext";
+import loadingIcon from "../../../assets/imgs/loadingIcon.gif";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
+  const [isLoadingRegister, setIsLoadingRegister] = useState(false);
 
   const { user, loading } = useUser();
   const handlePasswordVisibility = () => {
@@ -20,19 +22,23 @@ const Register = () => {
   };
   const handleRegister = (e) => {
     e.preventDefault();
+    setIsLoadingRegister(true);
 
     if (password !== repeatPassword) {
       setError("Passwords do not match");
+      setIsLoadingRegister(false);
       return;
     }
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         setSuccess(true);
+        setIsLoadingRegister(false);
         navigate("/profileSetup");
       })
       .catch((error) => {
         setError(error.message);
+        setIsLoadingRegister(false);
       });
   };
 
@@ -75,8 +81,20 @@ const Register = () => {
             />
             {isPasswordVisible ? "Hide Password" : "Show Password"}
           </label>
-          <button className="btnLogin" type="submit">
-            Create Account
+          <button
+            className="btnLogin"
+            type="submit"
+            disabled={isLoadingRegister}
+          >
+            {isLoadingRegister ? (
+              <img
+                src={loadingIcon}
+                alt="loading..."
+                className="loadingSpinner"
+              />
+            ) : (
+              "Create Account"
+            )}
           </button>
         </form>
 

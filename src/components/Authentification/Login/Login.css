@@ -17,6 +17,10 @@
   margin-bottom: 30px;
   margin-left: 25px;
 }
+.loadingSpinner {
+  height: 18px;
+  vertical-align: middle;
+}
 .mailInput {
   background-color: #161d2f;
   border-top-width: 0;

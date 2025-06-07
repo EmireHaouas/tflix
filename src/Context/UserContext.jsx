@@ -8,41 +8,51 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(true);
 
   useEffect(() => {
     const cachedProfile = localStorage.getItem("userProfile");
     if (cachedProfile) {
       setProfile(JSON.parse(cachedProfile));
+      setLoadingProfile(false);
     }
   }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      setLoadingUser(false);
 
       if (currentUser) {
-        const docRef = doc(db, "users", currentUser.uid);
-        const docSnap = await getDoc(docRef);
+        try {
+          const ref = doc(db, "users", currentUser.uid);
+          const snap = await getDoc(ref);
 
-        if (docSnap.exists()) {
-          const userProfile = docSnap.data();
-          localStorage.setItem("userProfile", JSON.stringify(userProfile));
-          setProfile(userProfile);
+          if (snap.exists()) {
+            const data = snap.data();
+            setProfile(data);
+            localStorage.setItem("userProfile", JSON.stringify(data));
+          }
+        } catch (error) {
+          console.error("Failed to fetch user profile:", error);
+        } finally {
+          setLoadingProfile(false);
         }
       } else {
         setProfile(null);
         localStorage.removeItem("userProfile");
+        setLoadingProfile(false);
       }
-
-      setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, profile, loading, setProfile }}>
+    <UserContext.Provider
+      value={{ user, profile, loadingUser, loadingProfile, setProfile }}
+    >
       {children}
     </UserContext.Provider>
   );

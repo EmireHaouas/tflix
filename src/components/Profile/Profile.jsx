@@ -8,11 +8,13 @@ import Countries from "../Datas/Countries.jsx";
 import TmdbLanguages from "../Datas/TmdbLanguages.js";
 import back_Arrow from "../../assets/imgs/back_Arrow.webp";
 import loadingIcon from "../../assets/imgs/loadingIcon.gif";
+import AvatarList from "../Datas/AvatarList.js";
 
 const Profile = () => {
   const { profile, user, loading, setProfile } = useUser();
   const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
+  const [avatar, setAvatar] = useState("");
   const [pseudo, setPseudo] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
@@ -28,6 +30,7 @@ const Profile = () => {
       setPseudo(profile.pseudo);
       setCountry(profile.country);
       setLanguage(profile.language);
+      setAvatar(profile.avatar);
     }
   }, [profile]);
 
@@ -48,12 +51,14 @@ const Profile = () => {
         pseudo,
         country,
         language,
+        avatar,
       };
 
       await updateDoc(ref, {
         pseudo,
         country,
         language,
+        avatar,
       });
 
       localStorage.setItem("userProfile", JSON.stringify(newProfile));
@@ -85,7 +90,11 @@ const Profile = () => {
           onClick={() => navigate(-1)}
         />
       </div>
-      <img className="profileAvatar" src={profile.avatar} alt="Avatar" />
+      <img
+        className="profileAvatar"
+        src={editing ? avatar : profile.avatar}
+        alt="Avatar"
+      />
 
       {editing ? (
         <form onSubmit={handleUpdate} className="profileEditForm">
@@ -116,6 +125,22 @@ const Profile = () => {
               </option>
             ))}
           </select>
+          <div className="choiceOfProfilePicture">
+            <p className="textProfilePicture">Choose a profile picture</p>
+            <div className="profilePicture">
+              {AvatarList.map((img, index) => (
+                <img
+                  key={index}
+                  className={`availableProfilePicture ${
+                    avatar === img ? "selected" : ""
+                  }`}
+                  src={img}
+                  alt={`avatar-${index}`}
+                  onClick={() => setAvatar(img)}
+                />
+              ))}
+            </div>
+          </div>
 
           <button type="submit" disabled={loadingProfileUpdate}>
             {loadingProfileUpdate ? (

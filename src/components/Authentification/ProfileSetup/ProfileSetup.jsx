@@ -6,39 +6,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useUser } from "../../../context/UserContext";
 import Countries from "../../Datas/Countries.jsx";
 import TmdbLanguages from "../../Datas/TmdbLanguages.js";
-import Bat from "../../../assets/imgs/ProfilePicture/iconBat.png";
-import Cat from "../../../assets/imgs/ProfilePicture/iconCat.png";
-import Bull from "../../../assets/imgs/ProfilePicture/iconBull.png";
-import Carlin from "../../../assets/imgs/ProfilePicture/iconCarlin.png";
-import Dragon from "../../../assets/imgs/ProfilePicture/iconDragon.png";
-import Fox from "../../../assets/imgs/ProfilePicture/iconFox.png";
-import Goat from "../../../assets/imgs/ProfilePicture/iconGoat.png";
-import Jaguar from "../../../assets/imgs/ProfilePicture/iconJaguar.png";
-import Lemur from "../../../assets/imgs/ProfilePicture/iconLemur.png";
-import Phoenix from "../../../assets/imgs/ProfilePicture/iconPhoenix.png";
-import Pig from "../../../assets/imgs/ProfilePicture/iconPig.png";
-import Pinguin from "../../../assets/imgs/ProfilePicture/iconPinguin.png";
-import Sheep from "../../../assets/imgs/ProfilePicture/iconSheep.png";
-import Velociraptor from "../../../assets/imgs/ProfilePicture/iconVelociraptor.png";
-import Wolf from "../../../assets/imgs/ProfilePicture/iconWolf.png";
-
-const avatars = [
-  Bat,
-  Cat,
-  Bull,
-  Carlin,
-  Dragon,
-  Fox,
-  Goat,
-  Jaguar,
-  Lemur,
-  Phoenix,
-  Pig,
-  Pinguin,
-  Sheep,
-  Velociraptor,
-  Wolf,
-];
+import avatars from "../../Datas/AvatarList.js";
 
 const ProfileSetup = () => {
   const [pseudo, setPseudo] = useState("");
