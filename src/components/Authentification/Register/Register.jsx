@@ -11,10 +11,13 @@ const Register = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
   const { user, loading } = useUser();
-
+  const handlePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -49,7 +52,7 @@ const Register = () => {
 
           <input
             className="passwordInput"
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -58,13 +61,20 @@ const Register = () => {
 
           <input
             className="passwordInput"
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             placeholder="Repeat Password"
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
             required
           />
-
+          <label className="showPasswordLabel">
+            <input
+              type="checkbox"
+              className="checkbox"
+              onClick={handlePasswordVisibility}
+            />
+            {isPasswordVisible ? "Hide Password" : "Show Password"}
+          </label>
           <button className="btnLogin" type="submit">
             Create Account
           </button>

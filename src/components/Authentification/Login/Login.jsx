@@ -11,6 +11,11 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { user, loading } = useUser();
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const handlePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,12 +43,21 @@ const Login = () => {
           />
           <input
             className="passwordInput"
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <label className="showPasswordLabel">
+            <input
+              type="checkbox"
+              className="checkbox"
+              onClick={handlePasswordVisibility}
+            />
+            {isPasswordVisible ? "Hide Password" : "Show Password"}
+          </label>
+
           {error && <p className="loginError">{error}</p>}
           <button className="btnLogin" disabled={!email || !password}>
             Login to your account
