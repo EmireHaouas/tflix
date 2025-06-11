@@ -30,7 +30,7 @@ A responsive web app that allows users to discover which streaming platforms off
 ### 👤 Profile Editing
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen1.gif" alt="Profile Editing" width="400"/>
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screenEditProfile.gif" alt="Profile Editing" width="400"/>
 </p>
 
 **Users can edit their avatar, pseudo, language and country directly from their profile.**
