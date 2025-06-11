@@ -4,7 +4,7 @@ A responsive web app that allows users to discover which streaming platforms off
 
 🔗 [Live Demo](https://emire-haouas.dev/tflix/)
 
-![Preview](https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screenshot%201.png)
+![Preview](https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/tflixScreenshot.gif)
 
 ---
 
@@ -18,7 +18,6 @@ A responsive web app that allows users to discover which streaming platforms off
 - 🌐 Personalized recommendations based on user preferences
 - 🧑‍💻 User authentication via Firebase
 - 🖼️ Avatar selection during registration and profile editing
-![Profile Editing] (https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen1.gif)
 - 🌍 Set language and country preferences
 - 🔁 Edit profile (pseudo, avatar, language, country) at any time
 - ⏳ Loading spinners for login, registration, and profile updates
@@ -26,6 +25,59 @@ A responsive web app that allows users to discover which streaming platforms off
 - 📱 Fully responsive design for desktop, tablet, and mobile
 
 ---
+## 📸 Feature Demos
+
+### 👤 Profile Editing
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen1.gif" alt="Profile Editing" width="400"/>
+</p>
+
+**Users can edit their avatar, pseudo, language and country directly from their profile.**
+
+---
+
+### 🔎 Movie Search
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen4.gif" alt="Search Feature" width="400"/>
+</p>
+
+**Real-time search across multiple streaming platforms using TMDB API.**
+
+---
+
+### ❤️ Wishlist Usage
+
+<p align=center">
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen2.gif" alt="Wishlist Add" width="300"/>
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen3.gif" alt="Wishlist Remove" width="170"/>
+</p>
+
+**Add or remove movies and shows from a personal wishlist with a simple click.**
+
+---
+
+### 🎬 Trailer Playback
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen5.gif" alt="Trailer Playback" width="600" style="border-radius: 15px"/>
+</p>
+
+**Users can instantly watch trailers without leaving the app.**
+
+---
+
+### 🔥 Trending Content
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen6.gif" alt="Trending Content" width="600"/>
+</p>
+
+**Homepage features trending movies and TV shows with smooth horizontal scrolling.**
+
+---
+
 
 ## 🛠️ Technologies
 
