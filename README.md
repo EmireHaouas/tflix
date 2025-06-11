@@ -18,6 +18,7 @@ A responsive web app that allows users to discover which streaming platforms off
 - 🌐 Personalized recommendations based on user preferences
 - 🧑‍💻 User authentication via Firebase
 - 🖼️ Avatar selection during registration and profile editing
+![Profile Editing] (https://raw.githubusercontent.com/EmireHaouas/tflix/refs/heads/main/src/assets/imgs/screen1.gif)
 - 🌍 Set language and country preferences
 - 🔁 Edit profile (pseudo, avatar, language, country) at any time
 - ⏳ Loading spinners for login, registration, and profile updates
