@@ -14,6 +14,7 @@ import Login from "./components/Authentification/Login/Login.jsx";
 import Register from "./components/Authentification/Register/Register.jsx";
 import ProfileSetup from "./components/Authentification/ProfileSetup/ProfileSetup.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import ResetPassword from "./components/Authentification/ResetPassword/ResetPassword.jsx";
 
 function AppInner() {
   const { user } = useUser();
@@ -81,6 +82,7 @@ function AppInner() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profileSetup" element={<ProfileSetup />} />
+        <Route path="/resetPassword" element={<ResetPassword />} />
 
         <Route
           path="/bookmarked"

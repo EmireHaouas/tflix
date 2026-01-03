@@ -58,7 +58,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label className="showPasswordLabel">
+          <label className="showPasswordLoginLabel">
             <input
               type="checkbox"
               className="checkbox"
@@ -66,8 +66,24 @@ const Login = () => {
             />
             {isPasswordVisible ? "Hide Password" : "Show Password"}
           </label>
+          <div className="noAccount">
+            <p className="signLogin">
+              Forgot password?{" "}
+              <span className="signSpan">
+                <Link to="/resetpassword" className="resetLink">
+                  Reset password
+                </Link>
+              </span>
+            </p>
+          </div>
 
-          {error && <p className="loginError">{error}</p>}
+          {error && (
+            <p className="loginError">
+              We couldn't log you in. Please check your email and password and
+              try again.
+              <span className="loginErrorSubtitle">{error}</span>
+            </p>
+          )}
 
           <button
             className="btnLogin"
