@@ -37,14 +37,22 @@ const Register = () => {
         navigate("/profileSetup");
       })
       .catch((error) => {
-        setError(error.message);
+        setError({ code: error.code, message: error.message });
         setIsLoadingRegister(false);
       });
   };
+  const errorMessages = {
+    "auth/email-already-in-use": "Email already in use!",
+    "auth/invalid-email": "Invalid email format.",
+    "auth/weak-password":
+      "Password is too weak. Password should be at least 6 characters!",
+  };
+  const getErrorMessage = (errorCode) =>
+    errorMessages[errorCode] || "An unknown error occurred";
 
   return (
     <main className="mainLogin">
-      <div className="login">
+      <div className={error ? "registerError" : "register"}>
         <h1 className="h1_Login">Register</h1>
         <form onSubmit={handleRegister}>
           <input
@@ -97,8 +105,12 @@ const Register = () => {
             )}
           </button>
         </form>
+        {error && error.code && (
+          <p className="loginError">
+            {error.code ? getErrorMessage(error.code) : error.message}
+          </p>
+        )}
 
-        {error && <p className="errorMessage">{error}</p>}
         {success && <p className="successMessage">Registration successful!</p>}
 
         <div className="noAccount">

@@ -1,4 +1,4 @@
-.login {
+.register {
   display: flex;
   flex-direction: column;
   background-color: #161d2f;
@@ -8,6 +8,17 @@
   border-radius: 15px;
   align-self: center;
   padding-bottom: 60px;
+}
+.registerError{
+  display: flex;
+  flex-direction: column;
+  background-color: #161d2f;
+  width: 400px;
+  height: 418px;
+  font-family: "Outfit", sans-serif;
+  border-radius: 15px;
+  align-self: center;
+  padding-bottom: 90px;
 }
 .h1_Login {
   color: #ffffff;
