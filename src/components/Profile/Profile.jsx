@@ -15,10 +15,20 @@ const Profile = () => {
   const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
   const [avatar, setAvatar] = useState("");
+  const [avatarIndex, setAvatarIndex] = useState(null);
   const [pseudo, setPseudo] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
   const [loadingProfileUpdate, setLoadingProfileUpdate] = useState(false);
+
+  // Helper function to get avatar URL from index or legacy path
+  const getAvatarUrl = () => {
+    if (profile?.avatarIndex !== undefined && profile.avatarIndex !== null) {
+      return AvatarList[profile.avatarIndex] || AvatarList[0];
+    }
+    // Fallback for legacy profiles with avatar path
+    return profile?.avatar || AvatarList[0];
+  };
   const getCountryLabel = (code) =>
     Countries.find((c) => c.code === code)?.label || code;
 
@@ -30,7 +40,19 @@ const Profile = () => {
       setPseudo(profile.pseudo);
       setCountry(profile.country);
       setLanguage(profile.language);
-      setAvatar(profile.avatar);
+      // Handle both new (index) and legacy (path) avatar formats
+      if (profile.avatarIndex !== undefined && profile.avatarIndex !== null) {
+        setAvatarIndex(profile.avatarIndex);
+        setAvatar(AvatarList[profile.avatarIndex] || AvatarList[0]);
+      } else if (profile.avatar) {
+        // Legacy: find index from path or use first avatar
+        const index = AvatarList.findIndex(img => img === profile.avatar);
+        setAvatarIndex(index >= 0 ? index : 0);
+        setAvatar(index >= 0 ? AvatarList[index] : AvatarList[0]);
+      } else {
+        setAvatarIndex(0);
+        setAvatar(AvatarList[0]);
+      }
     }
   }, [profile]);
 
@@ -51,17 +73,21 @@ const Profile = () => {
         pseudo,
         country,
         language,
-        avatar,
+        avatarIndex: avatarIndex,
       };
 
       await updateDoc(ref, {
         pseudo,
         country,
         language,
-        avatar,
+        avatarIndex: avatarIndex,
       });
 
-      localStorage.setItem("userProfile", JSON.stringify(newProfile));
+      const updatedProfile = {
+        ...newProfile,
+        avatarIndex: avatarIndex,
+      };
+      localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
       setProfile(newProfile);
       setEditing(false);
     } catch (error) {
@@ -92,7 +118,7 @@ const Profile = () => {
       </div>
       <img
         className="profileAvatar"
-        src={editing ? avatar : profile.avatar}
+        src={editing ? avatar : getAvatarUrl()}
         alt="Avatar"
       />
 
@@ -132,11 +158,14 @@ const Profile = () => {
                 <img
                   key={index}
                   className={`availableProfilePicture ${
-                    avatar === img ? "selected" : ""
+                    avatarIndex === index ? "selected" : ""
                   }`}
                   src={img}
                   alt={`avatar-${index}`}
-                  onClick={() => setAvatar(img)}
+                  onClick={() => {
+                    setAvatar(img);
+                    setAvatarIndex(index);
+                  }}
                 />
               ))}
             </div>

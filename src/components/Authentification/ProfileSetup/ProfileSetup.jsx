@@ -13,6 +13,7 @@ const ProfileSetup = () => {
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
+  const [selectedAvatarIndex, setSelectedAvatarIndex] = useState(null);
   const navigate = useNavigate();
   const { user, loading, profile } = useUser();
 
@@ -27,7 +28,7 @@ const ProfileSetup = () => {
       !pseudo.trim() ||
       !country.trim() ||
       !language.trim() ||
-      !profilePicture
+      selectedAvatarIndex === null
     ) {
       alert("Please fill in all fields.");
       return;
@@ -39,7 +40,7 @@ const ProfileSetup = () => {
         pseudo: pseudo.trim(),
         country: country.trim(),
         language: language.trim(),
-        avatar: profilePicture,
+        avatarIndex: selectedAvatarIndex,
       });
 
       navigate("/");
@@ -108,10 +109,13 @@ const ProfileSetup = () => {
             {avatars.map((img, index) => (
               <img
                 key={index}
-                className={`availableProfilePicture ${profilePicture === img ? "selected" : ""}`}
+                className={`availableProfilePicture ${selectedAvatarIndex === index ? "selected" : ""}`}
                 src={img}
                 alt={`avatar-${index}`}
-                onClick={() => setProfilePicture(img)}
+                onClick={() => {
+                  setProfilePicture(img);
+                  setSelectedAvatarIndex(index);
+                }}
               />
             ))}
           </div>
