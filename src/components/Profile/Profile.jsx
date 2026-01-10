@@ -46,7 +46,7 @@ const Profile = () => {
         setAvatar(AvatarList[profile.avatarIndex] || AvatarList[0]);
       } else if (profile.avatar) {
         // Legacy: find index from path or use first avatar
-        const index = AvatarList.findIndex(img => img === profile.avatar);
+        const index = AvatarList.findIndex((img) => img === profile.avatar);
         setAvatarIndex(index >= 0 ? index : 0);
         setAvatar(index >= 0 ? AvatarList[index] : AvatarList[0]);
       } else {

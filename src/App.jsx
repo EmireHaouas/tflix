@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { addBookmark, removeBookmark, fetchBookmarks } from "./utils/bookmark";
 import { useUser, UserProvider } from "./context/UserContext";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
-
 import Home from "./components/Home/Home";
 import Series from "./components/Series/Series.jsx";
 import Movies from "./components/Movies/Movies.jsx";
@@ -15,6 +14,7 @@ import Register from "./components/Authentification/Register/Register.jsx";
 import ProfileSetup from "./components/Authentification/ProfileSetup/ProfileSetup.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import ResetPassword from "./components/Authentification/ResetPassword/ResetPassword.jsx";
+import UserAnalytics from "./components/UserAnalytics/UserAnalytics.jsx";
 
 function AppInner() {
   const { user } = useUser();
@@ -79,6 +79,7 @@ function AppInner() {
             />
           }
         />
+        <Route path="/analytics" element={<UserAnalytics />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profileSetup" element={<ProfileSetup />} />
