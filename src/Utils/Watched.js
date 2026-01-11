@@ -8,8 +8,13 @@ import {
 } from "firebase/firestore";
 
 export const addWatched = async (userId, movie) => {
-  const ref = doc(db, "users", userId, "watched", String(movie.id));
-  await setDoc(ref, movie);
+  try {
+    const cleanMovie = JSON.parse(JSON.stringify(movie));
+    const ref = doc(db, "users", userId, "watched", String(movie.id));
+    await setDoc(ref, cleanMovie);
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const removeWatched = async (userId, movieId) => {

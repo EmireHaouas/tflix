@@ -9,8 +9,9 @@ import TmdbLanguages from "../Datas/TmdbLanguages.js";
 import back_Arrow from "../../assets/imgs/back_Arrow.webp";
 import loadingIcon from "../../assets/imgs/loadingIcon.gif";
 import AvatarList from "../Datas/AvatarList.js";
+import UserAnalytics from "../UserAnalytics/UserAnalytics.jsx";
 
-const Profile = () => {
+const Profile = ({ watched }) => {
   const { profile, user, loading, setProfile } = useUser();
   const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
@@ -202,6 +203,9 @@ const Profile = () => {
           </button>
         </>
       )}
+      <div className="analyticsScrollContainer">
+        <UserAnalytics watched={watched} />
+      </div>
     </div>
   );
 };
