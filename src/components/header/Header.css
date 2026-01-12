@@ -26,13 +26,13 @@ body {
   cursor: pointer;
 }
 .logo {
-  width: 25px;
-  height: 20px;
+  width: 60px;
+  height: 23px;
   cursor: pointer;
 }
 .avatar {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border: 1px solid #fff;
   border-radius: 50px;
   cursor: pointer;
@@ -75,21 +75,102 @@ body {
 .headerRegisterLink {
   text-decoration: none;
   color: #ffffff;
-  margin-top: 0;
-  font-size: 15px;
+  margin: 0 0 16px 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
 }
+
+.headerRegisterLink::before {
+  content: '✨';
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.headerRegisterLink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.headerRegisterLink:hover::after {
+  left: 100%;
+}
+
+.headerRegisterLink:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .headerLoginLink {
   text-decoration: none;
   color: #ffffff;
-  margin-bottom: 0;
-  font-size: 15px;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerLoginLink::before {
+  content: '🔑';
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.headerLoginLink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.headerLoginLink:hover::after {
+  left: 100%;
+}
+
+.headerLoginLink:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .accountOptions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  position: relative; /* ← CLÉ POUR LE POSITIONNEMENT DU MENU */
+  position: relative;
 }
 
 .accountLoginOptions {
@@ -100,44 +181,181 @@ body {
 }
 .pseudoText {
   color: #ffffff;
-  font-size: 14px;
-  margin: 0 0 10px 0;
-  font-weight: 500;
+  font-size: 16px;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+  padding-bottom: 16px;
+  text-align: center;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.pseudoText::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .logoutBtn {
-  background-color: transparent;
-  border: 1px solid #fc4747;
+  background: linear-gradient(135deg, rgba(252, 71, 71, 0.15) 0%, rgba(252, 71, 71, 0.08) 100%);
+  border: 1px solid rgba(252, 71, 71, 0.4);
   color: #fc4747;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 12px 16px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 13px;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.logoutBtn::before {
+  content: '🚪';
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.logoutBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.logoutBtn:hover::after {
+  left: 100%;
 }
 
 .logoutBtn:hover {
-  background-color: #fc4747;
+  background: linear-gradient(135deg, #fc4747 0%, #e63946 100%);
   color: #ffffff;
+  border-color: #fc4747;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(252, 71, 71, 0.5),
+    0 0 20px rgba(252, 71, 71, 0.3);
 }
 .accountDropdown {
-  background-color: #1e253b;
-  border: 1px solid #2c344b;
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 8px;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: linear-gradient(135deg, rgba(30, 37, 59, 0.98) 0%, rgba(22, 29, 47, 0.98) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  width: 95%;
+  align-items: stretch;
+  gap: 5px;
+  width: 240px;
+  min-width: 240px;
+  z-index: 10000;
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 40px rgba(252, 71, 71, 0.1);
+  opacity: 0;
+  transform: translateY(-15px) scale(0.92);
+  animation: dropdownFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.accountDropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(252, 71, 71, 0.5), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes dropdownFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdownFadeInDesktop {
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
 }
 .headerProfileLink {
   text-decoration: none;
   color: #ffffff;
   font-size: 14px;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
+  padding: 12px 16px;
+  border-radius: 10px;
   font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerProfileLink::before {
+  content: '👤';
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.headerProfileLink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.headerProfileLink:hover::after {
+  left: 100%;
+}
+
+.headerProfileLink:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (min-width: 640px) {
@@ -155,13 +373,13 @@ body {
     cursor: pointer;
   }
   .logo {
-    width: 32px;
-    height: 25.6px;
+    width: 64px;
+    height: 27px;
     cursor: pointer;
   }
   .avatar {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border: 1px solid #fff;
     border-radius: 50px;
     cursor: pointer;
@@ -180,6 +398,11 @@ body {
     width: 20px;
     height: 20px;
     cursor: pointer;
+  }
+
+  .accountDropdown {
+    right: 0;
+    top: calc(100% + 12px);
   }
 }
 @media screen and (min-width: 1200px) {
@@ -204,6 +427,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+  }
+
+  .accountDropdown {
+    right: auto;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%) translateY(-15px) scale(0.92);
+    margin-top: 0;
+    margin-left: 0;
+    animation: dropdownFadeInDesktop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
   .accountLoginOptions {
     display: flex;

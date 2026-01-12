@@ -3,12 +3,12 @@ import "./Header.css";
 import { useUser } from "../../context/UserContext";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
-import logo from "../../assets/imgs/logo.svg";
+import logo from "../../assets/imgs/logo.png";
 import iconHome from "../../assets/imgs/icon-nav-home.svg";
 import iconNavMovie from "../../assets/imgs/icon-nav-movies.svg";
 import iconNavTv from "../../assets/imgs/icon-nav-tv-series.svg";
 import iconNavBookmark from "../../assets/imgs/icon-nav-bookmark.svg";
-import avatar from "../../assets/imgs/image-avatar.webp";
+import avatar from "../../assets/imgs/image-avatar.png";
 import AvatarList from "../Datas/AvatarList.js";
 import { useLocation, Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const Header = () => {
     setIsAccountOptionsVisible(!isAccountOptionsVisible);
   };
   const { profile } = useUser();
-  
+
   // Helper function to get avatar URL from index or legacy path
   const getAvatarUrl = () => {
     if (!profile) return avatar;
@@ -31,7 +31,7 @@ const Header = () => {
     // Fallback for legacy profiles with avatar path
     return profile.avatar || avatar;
   };
-  
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -100,7 +100,7 @@ const Header = () => {
           <div className="accountDropdown">
             {profile ? (
               <>
-                <p className="pseudoText">👤 {profile.pseudo}</p>
+                <p className="pseudoText"> {profile.pseudo}</p>
                 <Link className="headerProfileLink" to="/profile">
                   View Profile
                 </Link>
