@@ -1,0 +1,173 @@
+.uAnalyticsTitle {
+  color: #ffffff;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statLabel {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
+}
+
+.statValue {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.genresSection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.genresTitle {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.genreItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.genreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genreLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.genreRank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  color: #000000;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0 8px;
+}
+
+.genreName {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.genreBarWrapper {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.genreBar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700 0%, #ff8c00 50%, #ff4500 100%);
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pieChartSection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pieChartTitle {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pieChartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pieChart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0);
+}
+
+.pieChart.animated {
+  transform: scale(1);
+}
+
+.pieChartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pieChartPercentage {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pieChartLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legendLabel {
+  color: #ffffff;
+  font-size: 14px;
+}

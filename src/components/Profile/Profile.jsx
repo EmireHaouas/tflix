@@ -9,8 +9,9 @@ import TmdbLanguages from "../Datas/TmdbLanguages.js";
 import back_Arrow from "../../assets/imgs/back_Arrow.webp";
 import loadingIcon from "../../assets/imgs/loadingIcon.gif";
 import AvatarList from "../Datas/AvatarList.js";
+import UserAnalytics from "../UserAnalytics/UserAnalytics.jsx";
 
-const Profile = () => {
+const Profile = ({ watched }) => {
   const { profile, user, loading, setProfile } = useUser();
   const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
@@ -46,7 +47,7 @@ const Profile = () => {
         setAvatar(AvatarList[profile.avatarIndex] || AvatarList[0]);
       } else if (profile.avatar) {
         // Legacy: find index from path or use first avatar
-        const index = AvatarList.findIndex(img => img === profile.avatar);
+        const index = AvatarList.findIndex((img) => img === profile.avatar);
         setAvatarIndex(index >= 0 ? index : 0);
         setAvatar(index >= 0 ? AvatarList[index] : AvatarList[0]);
       } else {
@@ -202,6 +203,9 @@ const Profile = () => {
           </button>
         </>
       )}
+      <div className="analyticsScrollContainer">
+        <UserAnalytics watched={watched} />
+      </div>
     </div>
   );
 };

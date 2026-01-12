@@ -9,8 +9,14 @@ import back_Arrow from "../../assets/imgs/back_Arrow.webp";
 import CastProfile from "../Props/CastProfile/CastProfile.jsx";
 import { useUser } from "../../context/UserContext.jsx";
 import { getUserLanguage } from "../../Utils/apiConfig.js";
-
-const MediaDetails = ({ bookmarked, handleBookMark }) => {
+import iconCross from "../../assets/imgs/icon-cross.png";
+import iconWatch from "../../assets/imgs/icon-watch.png";
+const MediaDetails = ({
+  bookmarked,
+  handleBookMark,
+  handleWatched,
+  watched = [],
+}) => {
   const apiKey = "7898561c441dbd5aa0c4b3a3677ff473";
   const { mediaType, id } = useParams();
   const [media, setMedia] = useState(null);
@@ -93,7 +99,14 @@ const MediaDetails = ({ bookmarked, handleBookMark }) => {
       </div>
     ));
   };
-
+  const handleWatchedClick = (e) => {
+    e.stopPropagation();
+    handleWatched({
+      ...media,
+      media_type: mediaType,
+    });
+  };
+  const isWatched = watched.some((item) => item.id === media?.id);
   return (
     <>
       <Header />
@@ -166,6 +179,17 @@ const MediaDetails = ({ bookmarked, handleBookMark }) => {
         <p className="genreMedia">
           Genres: {media.genres.map((genre) => genre.name).join(", ")}
         </p>
+        <div className="watchedSection">
+          <p className="watchedTitle">Mark as watched</p>
+          <div className="watched-icon-container" onClick={handleWatchedClick}>
+            <img src={iconWatch} alt="watch" className="watchIcon" />
+            <img
+              src={iconCross}
+              alt="cross"
+              className={`watched-overlay ${isWatched ? "" : "rotated"}`}
+            />
+          </div>
+        </div>
         <p className="description">{media.overview}</p>
 
         <h2 className="h2_Disponibility">Available on :</h2>
