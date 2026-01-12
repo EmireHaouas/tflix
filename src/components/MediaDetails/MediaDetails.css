@@ -18,8 +18,10 @@ body{
     position: relative;
     display: inline-block;
 }
+.watched-icon-container:active{
+    transform: scale(1.1);
+}
 .watched-icon {
-    /* État contour : icône normale */
     opacity: 1;
 }
 .watchIcon {
