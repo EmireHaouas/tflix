@@ -22,12 +22,10 @@ const Profile = ({ watched }) => {
   const [language, setLanguage] = useState("");
   const [loadingProfileUpdate, setLoadingProfileUpdate] = useState(false);
 
-  // Helper function to get avatar URL from index or legacy path
   const getAvatarUrl = () => {
     if (profile?.avatarIndex !== undefined && profile.avatarIndex !== null) {
       return AvatarList[profile.avatarIndex] || AvatarList[0];
     }
-    // Fallback for legacy profiles with avatar path
     return profile?.avatar || AvatarList[0];
   };
   const getCountryLabel = (code) =>
@@ -46,7 +44,6 @@ const Profile = ({ watched }) => {
         setAvatarIndex(profile.avatarIndex);
         setAvatar(AvatarList[profile.avatarIndex] || AvatarList[0]);
       } else if (profile.avatar) {
-        // Legacy: find index from path or use first avatar
         const index = AvatarList.findIndex((img) => img === profile.avatar);
         setAvatarIndex(index >= 0 ? index : 0);
         setAvatar(index >= 0 ? AvatarList[index] : AvatarList[0]);
@@ -204,7 +201,7 @@ const Profile = ({ watched }) => {
         </>
       )}
       <div className="analyticsScrollContainer">
-        <UserAnalytics watched={watched} />
+        {editing === true ? null : <UserAnalytics watched={watched} />}
       </div>
     </div>
   );
