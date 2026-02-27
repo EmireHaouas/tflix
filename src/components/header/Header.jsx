@@ -21,14 +21,11 @@ const Header = () => {
     setIsAccountOptionsVisible(!isAccountOptionsVisible);
   };
   const { profile } = useUser();
-
-  // Helper function to get avatar URL from index or legacy path
   const getAvatarUrl = () => {
     if (!profile) return avatar;
     if (profile.avatarIndex !== undefined && profile.avatarIndex !== null) {
       return AvatarList[profile.avatarIndex] || avatar;
     }
-    // Fallback for legacy profiles with avatar path
     return profile.avatar || avatar;
   };
 
@@ -41,7 +38,9 @@ const Header = () => {
   };
   return (
     <header>
-      <img className="logo" src={logo} alt="logo" />
+      <Link to="/">
+        <img className="logo" src={logo} alt="logo" />
+      </Link>
       <nav className="nav">
         <Link to="/">
           <img
