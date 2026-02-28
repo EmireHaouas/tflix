@@ -26,7 +26,6 @@ const Bookmarked = ({ bookmarked, handleBookMarked }) => {
 
     return () => clearTimeout(timeoutIdBookmarked);
   }, [searchBookmarked, bookmarked]);
-  console.log(bookmarked);
   return (
     <>
       <Header />
