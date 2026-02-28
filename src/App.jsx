@@ -113,7 +113,16 @@ function AppInner() {
             />
           }
         />
-        <Route path="/analytics" element={<UserAnalytics />} />
+        <Route
+          path="/analytics"
+          element={
+            <UserAnalytics
+              watched={watched}
+              handleBookMarked={handleBookMark}
+              bookMarked={bookmarked}
+            />
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profileSetup" element={<ProfileSetup />} />

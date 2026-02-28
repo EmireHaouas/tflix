@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./UserAnalytics.css";
+import WatchedCard from "../Props/WatchedCard/WatchedCard.jsx";
 
 const UserAnalytics = ({ watched = [] }) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const movies = watched.filter((item) => item?.media_type === "movie");
   const tv = watched.filter((item) => item?.media_type === "tv");
-
   const frequences = {};
 
   watched.forEach((item) => {
@@ -29,7 +29,8 @@ const UserAnalytics = ({ watched = [] }) => {
   const maxFreq = Math.max(...Object.values(frequences), 1);
 
   const totalMedia = movies.length + tv.length;
-  const moviesPercentage = totalMedia > 0 ? (movies.length / totalMedia) * 100 : 0;
+  const moviesPercentage =
+    totalMedia > 0 ? (movies.length / totalMedia) * 100 : 0;
   const tvPercentage = totalMedia > 0 ? (tv.length / totalMedia) * 100 : 0;
 
   useEffect(() => {
@@ -38,7 +39,8 @@ const UserAnalytics = ({ watched = [] }) => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
-
+  const moviesWatched = watched.filter((item) => item.media_type === "movie");
+  const seriesWatched = watched.filter((item) => item.media_type === "tv");
   return (
     <>
       <p className="uAnalyticsTitle">My Statistics</p>
@@ -76,11 +78,17 @@ const UserAnalytics = ({ watched = [] }) => {
               </div>
               <div className="pieChartLegend">
                 <div className="legendItem">
-                  <div className="legendColor" style={{ background: "#ffd700" }}></div>
+                  <div
+                    className="legendColor"
+                    style={{ background: "#ffd700" }}
+                  ></div>
                   <span className="legendLabel">Movies: {movies.length}</span>
                 </div>
                 <div className="legendItem">
-                  <div className="legendColor" style={{ background: "#fc4747" }}></div>
+                  <div
+                    className="legendColor"
+                    style={{ background: "#fc4747" }}
+                  ></div>
                   <span className="legendLabel">TV Shows: {tv.length}</span>
                 </div>
               </div>
@@ -115,6 +123,19 @@ const UserAnalytics = ({ watched = [] }) => {
             })}
           </div>
         )}
+        <p className="genresTitle">Movies I watched:</p>
+
+        <div className="moviesContainer">
+          {moviesWatched.map((item) => (
+            <WatchedCard key={item.id} item={item} />
+          ))}
+        </div>
+        <p className="genresTitle">Series I watched:</p>
+        <div className="moviesContainer">
+          {seriesWatched.map((item) => (
+            <WatchedCard key={item.id} item={item} />
+          ))}
+        </div>
       </div>
     </>
   );
