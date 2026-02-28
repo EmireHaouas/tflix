@@ -111,13 +111,13 @@ Then open your browser at [http://localhost:5173](http://localhost:5173)
 - ⚙️ Improved form validation and error handling
 - 💾 Cached user profile in `localStorage` for smoother UX
 - 🎨 UI refinements to select dropdowns and responsive layout
+- 📺 Multi-language interface
+- 📊 Viewing history and analytics
 
 ---
 
 ## 🔮 Future Features
 
-- 📺 Multi-language interface
-- 📊 Viewing history and analytics
 - 🎬 Trailer playback enhancements
 - 🧠 Smarter recommendation engine
 - 🔔 Notifications and reminders for upcoming releases
